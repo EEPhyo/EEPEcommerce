@@ -28,6 +28,7 @@
     
     
     <wb-module deploy-name="ClothingProj-0.0.1-SNAPSHOT">
+                
         <wb-resource deploy-path="/WEB-INF/web.xml" source-path="/WebContent/WEB-INF/web.xml"/>
                                                                                                                                                         
         
@@ -82,10 +83,7 @@
         
         
         
-        
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-                                                                                                                                                                                                                                        
-        
+    
         
         
         
