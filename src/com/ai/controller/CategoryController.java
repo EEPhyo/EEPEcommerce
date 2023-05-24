@@ -12,8 +12,8 @@ import com.ai.persistant.dto.CategoryDto;
 public class CategoryController {
 	 @Autowired
      private CategoryDao CategoryDao;
-     @RequestMapping(value="/home",method=RequestMethod.GET)
+     @RequestMapping(value="/create",method=RequestMethod.GET)
 	public String home() {
-		return "/frontend/home";
+		return "/categories/create";
 	}
 }

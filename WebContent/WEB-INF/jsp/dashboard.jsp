@@ -63,7 +63,6 @@
                     <th>Email</th>
                     <th>Phone Number</th>
                     <th>Address</th>
-                    <th>Role</th>
                     <th>Created Date</th>
                     <th>Updated Date</th>
                     <th>Created User</th>
@@ -86,8 +85,8 @@
 		                    	<td>${user.address}</td>	
 		                    	
 		                       <td><${user.role_id}</td>
-		                    	
-		                    	              	
+		                    	<td>${user.name}</td>
+		                    	<td>${user.name}</td>            	
 		                    	<td>${user.created_date }</td>
 		                    	<td>${user.updated_date }</td>
 		                    	<td>-</td>

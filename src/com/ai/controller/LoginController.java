@@ -51,7 +51,7 @@ public class LoginController {
 			return "redirect:/auth/login";
 		}
 
-		String view=null;
+		
 		if (user.getEmail().equals("johndoe@gmail.com") && user.getPassword().equals("admin123")) {
 			ArrayList<UserDto> adminList = account.selectAllAdmin();
 			Iterator<UserDto> adminIterator = adminList.iterator();
@@ -67,23 +67,27 @@ public class LoginController {
 					model.addAttribute("error", "Invalid Email or Password!");
 					return "/auth/login";
 				}
-//			}
-////		} else {
-////			ArrayList<UserDto> userList = account.selectAllUser();
-////		Iterator<UserDto> userIterator = userList.iterator();
-////
-////		while (userIterator.hasNext()) {
-////				UserDto userdto = userIterator.next();
-////
-////				if (user.getEmail().equals(userdto.getEmail()) && user.getPassword().equals(userdto.getPassword())) {
-////					session.setAttribute("Id", userdto.getId());
-////				session.setAttribute("Email", userdto.getEmail());
-////					view="/frontend/checkout";
-////			}
-////		}
-//
 		}
+		} else {
+			ArrayList<UserDto> userList = account.selectAllUser();
+		Iterator<UserDto> userIterator = userList.iterator();
+
+		while (userIterator.hasNext()) {
+				UserDto userdto = userIterator.next();
+
+				if (user.getEmail().equals(userdto.getEmail()) && user.getPassword().equals(userdto.getPassword())) {
+					session.setAttribute("Id", userdto.getId());
+					session.setAttribute("Email", userdto.getEmail());
+					return "/frontend/checkout";
+				}else {
+					model.addAttribute("error", "Invalid Email or Password!");
+					return "/auth/login";
+				}
+			}
 		}
-		return "redirect:/list";
+		return null;
+
+		
+		
 	}
 }

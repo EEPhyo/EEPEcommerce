@@ -173,7 +173,7 @@ public class RegistrationController {
 				dto.setConfirmPassword((user.getConfirmPassword()));
 				dto.setPhone_number(user.getPhone_number());
 				dto.setAddress(user.getAddress());
-				dto.setRole_id(user.getRole_id());
+				dto.setRole_id(2);
 				int rs = dao.insertData(dto);	
 				
 				if(rs ==0) {
