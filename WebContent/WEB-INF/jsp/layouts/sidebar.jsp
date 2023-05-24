@@ -33,7 +33,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/dashboard" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>User List</p>
                                 </a>
@@ -41,6 +41,30 @@
                            
                         </ul>
                   </li>          
+                  
+                 <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-cog"></i>
+                            <p>
+                                Categories List
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Categories List</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/categories/create" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Add New Category</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
           
         </ul>
       </nav>
