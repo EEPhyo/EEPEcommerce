@@ -13,6 +13,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 
 
 
+
 <bean id="userDao" class="com.ai.persistant.dao.UserDao"/>
 <bean id="accountDao" class="com.ai.persistant.dao.AccountDao"/>
 <bean id="roleDao" class="com.ai.persistant.dao.RoleDao"/>
@@ -34,11 +35,5 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 	<bean class="org.springframework.context.support.ResourceBundleMessageSource"
 		id="messageSource">
 		<property name="basename" value="messages" />
-	</bean>
-	
-	
-	
-
-	
-	     
+	</bean>	     
 </beans>
