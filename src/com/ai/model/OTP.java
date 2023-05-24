@@ -14,8 +14,10 @@ import java.util.Set;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
+@Table(name="otp")
 
 public class OTP implements Serializable{
+	private static final long OTP_VALID_DURATION = 5 * 60 * 1000;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,6 +34,32 @@ public class OTP implements Serializable{
 	@Column
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private String updated_date;
+	
+	@Column
+	(name = "otp_requested_time")
+    private String otpRequestedTime;
+	
+	public boolean isOTPRequired() {
+        if (this.getOneTimePassword() == null) {
+            return false;
+        }
+         
+        long currentTimeInMillis = System.currentTimeMillis();
+        long otpRequestedTimeinMillis = this.otpRequestedTime.getTime();
+         
+        if (otpRequestedTimeinMillis + OTP_VALID_DURATION < currentTimeInMillis) {
+            // OTP expires
+            return false;
+        }
+         
+        return true;
+    }
+
+
+	private Object getOneTimePassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 	public OTP(){}
