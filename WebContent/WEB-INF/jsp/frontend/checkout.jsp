@@ -13,11 +13,11 @@
     <title>Eshop - eCommerce HTML5 Template.</title>
     
     
-    <% 	if((request.getSession(false).getAttribute("Customer")== null) )%>
+   
     
     
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/images/favicon.png">
+	<link rel="icon" type="image/png" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/favicon.png">
 	<!-- Web Font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 	
@@ -27,9 +27,9 @@
 	<jsp:include page="./css.jsp"></jsp:include>
 	
 	<!-- Eshop StyleSheet -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/css/reset.css">
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/reset.css">
 	<link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/css/responsive.css">
+    <link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/responsive.css">
 
 	
 	
@@ -439,7 +439,7 @@
 							<!-- Payment Method Widget -->
 							<div class="single-widget payement">
 								<div class="content">
-									<img src="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/images/payment-method.png" alt="#">
+									<img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/payment-method.png" alt="#">
 								</div>
 							</div>
 							<!--/ End Payment Method Widget -->

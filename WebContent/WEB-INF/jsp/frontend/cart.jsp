@@ -10,7 +10,7 @@
 	<!-- Title Tag  -->
     <title>Eshop - eCommerce HTML5 Template.</title>
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/images/favicon.png">
+	<link rel="icon" type="image/png" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/favicon.png">
 	<!-- Web Font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 	
@@ -19,9 +19,9 @@
 	<jsp:include page="./css.jsp"></jsp:include>
 	
 	<!-- Eshop StyleSheet -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/css/reset.css">
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/reset.css">
 	<link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/css/responsive.css">
+    <link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/responsive.css">
 
 
 	
@@ -284,16 +284,16 @@
 									<div class="product-gallery">
 										<div class="quickview-slider-active">
 											<div class="single-slider">
-												<img src="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/images/modal1.jpg" alt="#">
+												<img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/modal1.jpg" alt="#">
 											</div>
 											<div class="single-slider">
-												<img src="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/images/modal2.jpg" alt="#">
+												<img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/modal2.jpg" alt="#">
 											</div>
 											<div class="single-slider">
-												<img src="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/images/modal3.jpg" alt="#">
+												<img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/modal3.jpg" alt="#">
 											</div>
 											<div class="single-slider">
-												<img src="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/images/modal4.jpg" alt="#">
+												<img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/modal4.jpg" alt="#">
 											</div>
 										</div>
 									</div>

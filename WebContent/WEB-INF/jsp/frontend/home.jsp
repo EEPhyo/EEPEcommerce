@@ -13,18 +13,38 @@
 	<!-- Title Tag  -->
 	<title>Ecommerce Shop</title>
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/images/logo.jpg" width="30%">
+	<link rel="icon" type="image/png" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/logo.jpg" width="30%">
 	<!-- Web Font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 	
 	<!-- StyleSheet -->
-	<jsp:include page="./css.jsp"></jsp:include>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/bootstrap.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/magnific-popup.min.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/font-awesome.css">
+	<!-- Fancybox -->
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/jquery.fancybox.min.css">
+	<!-- Themify Icons -->
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/themify-icons.css">
+	<!-- Nice Select CSS -->
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/niceselect.css">
+	<!-- Animate CSS -->
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/animate.css">
+	<!-- Flex Slider CSS -->
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/flex-slider.min.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/owl-carousel.css">
+	<!-- Slicknav -->
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/slicknav.min.css">
+
 	
 	
 	<!-- Eshop StyleSheet -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/css/reset.css">
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/style.css">
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/css/responsive.css">
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/reset.css">
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/style.css">
+	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/responsive.css">
 	
 	
 </head>
@@ -1909,8 +1929,38 @@
 	
 		<jsp:include page="./footer.jsp"></jsp:include>
 		
-		<jsp:include page="./js.jsp"></jsp:include>
-		
+		<!-- Jquery -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/jquery.min.js"></script>
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/jquery-migrate-3.0.0.js"></script>
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/jquery-ui.min.js"></script>
+		<!-- Popper JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/popper.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/bootstrap.min.js"></script>
+		<!-- Color JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/colors.js"></script>
+		<!-- Slicknav JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/slicknav.min.js"></script>
+		<!-- Owl Carousel JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/owl-carousel.js"></script>
+		<!-- Magnific Popup JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/magnific-popup.js"></script>
+		<!-- Waypoints JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/waypoints.min.js"></script>
+		<!-- Countdown JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/finalcountdown.min.js"></script>
+		<!-- Nice Select JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/nicesellect.js"></script>
+		<!-- Flex Slider JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/flex-slider.js"></script>
+		<!-- ScrollUp JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/scrollup.js"></script>
+		<!-- Onepage Nav JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/onepage-nav.min.js"></script>
+		<!-- Easing JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/easing.js"></script>
+		<!-- Active JS -->
+		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/active.js"></script>
 		
 	</body>
 	</html>

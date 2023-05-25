@@ -40,13 +40,14 @@ public class AccountDao {
 	//selectAllAdmin
 	public ArrayList<UserDto> selectAllAdmin() {
 	    ArrayList<UserDto> list = new ArrayList<UserDto>();
-	    String sql = "SELECT * FROM user WHERE email LIKE ? AND password LIKE ?";
+	    String sql = "SELECT * FROM user WHERE email LIKE \"%johndoe@gmail.com%\" AND password LIKE \"%admin123%\"  AND role_id=1;";
 	    
 	    try {
 	        UserDto user = new UserDto();
 	        PreparedStatement ps = con.prepareStatement(sql);
-	        ps.setString(1, "%johndoe@gmail.com%");
-	        ps.setString(2, "%admin123%");
+	        ps.setString(1, user.getEmail());
+	        ps.setString(2,user.getPassword());
+	        ps.setInt(3, user.getRole_id());
 	        ResultSet rs = ps.executeQuery();
 	        
 	        while (rs.next()) {
