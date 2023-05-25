@@ -29,36 +29,38 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>User List</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Users</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>User List</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">User List</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
+      <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-           <div class="row">
-               <div class="col-12">
-                  <div class="card">
-                      <div class="card-header">
-                        <h3 class="card-title">Users List</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                  	
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header" style="display: inline;">
+                            <h3 class="card-title">Ecommerce Management</h3>
+             			 </div>         			 
+             			 
+             			 
+             			 
+               <!-- /.card-header -->
+               <div class="card-body">
+                   <table id="table1" class="table table-bordered table-striped">
+                       <thead>
+                  <tr>                  	
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone Number</th>
@@ -100,22 +102,24 @@
 		                    </tr>  
 		                    
 		                    
-		                 </c:forEach>
-                  </tbody>
+		                		 </c:forEach>
                   
-                 </table>
-              </div>
-      		</div>
-    	</div>
-    	</div>                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
         </div>
-     </section>
-   
-  </div>
-		
-		
-		
-		
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
 <jsp:include page="./layouts/footer.jsp"></jsp:include>
 		
 		
@@ -137,7 +141,25 @@
 <!-- AdminLTE for demo purposes -->
 <script src="$ {Pagecontext. Request. contextpath }/../resource/dist/js/demo.js"></script>
 
-<jsp:include page="./layouts/script-index.jsp"></jsp:include>
 		
+<!-- Page specific script -->
+<script>
+$(function() {
+    $("#table1").DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "order": [
+            [5, 'desc']
+        ]
+        
+    }).buttons().container().appendTo('#table1_wrapper .col-md-6:eq(0)');
+});
+
+$(".delete-form").on("submit", function() {
+    return confirm("Are you sure to delete?");
+});
+		
+</script>
 </body>
 </html>

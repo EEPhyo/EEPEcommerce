@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.ai.model.Login;
 import com.ai.model.Role;
+import com.ai.model.User;
 import com.ai.persistant.dto.RoleDto;
 import com.ai.persistant.dto.UserDto;
 
@@ -160,6 +161,36 @@ public class UserDao {
 			System.out.println("Database error");
 		}
 		return list;
+	}
+	
+	//getLogin
+	public UserDto getLogin(User user) {
+		UserDto res = new UserDto();
+		String sql = "SELECT * FROM user WHERE email='user.getEmail()' AND password='user.getPassword()'";
+		
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				rs.getInt("id");
+				res.setName(rs.getString("name"));
+				res.setEmail(rs.getString("email"));
+				res.setPassword(rs.getString("password"));
+				res.setPhone_number(rs.getString("phone_number"));
+				res.setAddress(rs.getString("address"));
+				res.setRole_id(rs.getInt("role_id"));
+				res.setCreated_date(rs.getString("created_date"));
+				res.setUpdated_date(rs.getString("updated_date"));
+				res.setCreated_user(rs.getString("created_user"));
+				res.setUpdated_user(rs.getString("updated_user"));
+				res.setEnabled(rs.getBoolean("enabled"));
+				res.setLocked(rs.getBoolean("locked"));
+				}
+			
+		} catch (SQLException e) {
+			System.out.println("Database error");
+		}
+		return res;
 	}
 
 

@@ -6,7 +6,7 @@
 					<div class="header__content">
 						<div class="header__logo">
 							<a href="home.jsp">
-								<img src="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/images/logo3.png" alt="logo">
+								<img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/logo3.png" alt="logo">
 							</a>
 						</div>
 						
@@ -72,7 +72,7 @@
 						<div class="header__actions">
 							<div class="header__action">
 								<a class="header__profile-btn" href="#" role="button" id="dropdownMenuProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<img src="$ {Pagecontext. Request. contextpath }/resource/frontedn_ui/images/cart.png" alt="cart" width="50%">
+									<img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/cart.png" alt="cart" width="50%">
 								</a>
 								
 								<ul class="dropdown-menu header__profile-menu" aria-labelledby="dropdownMenuProfile">
