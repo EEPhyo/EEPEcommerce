@@ -54,8 +54,7 @@
                             <h3 class="card-title">Ecommerce Management</h3>
              			 </div>                  			 
              			 
-             			 
-                          <div class="card-body">
+                         <div class="card-body">
                               <table id="example1" class="table table-bordered table-striped">
                               <thead>
                               <tr>
@@ -94,6 +93,58 @@
 
                               </tbody>
                               
+
+             			 
+               <!-- /.card-header -->
+               <div class="card-body">
+                   <table id="table1" class="table table-bordered table-striped">
+                       <thead>
+                  <tr>                  	
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>Created Date</th>
+                    <th>Updated Date</th>
+                    <th>Created User</th>
+                    <th>Updated User</th>
+                    <th>Enabled</th>
+                    <th>Locked</th>
+                   
+                  </tr>
+                  </thead>
+                  
+                  <tbody> 
+                      
+                         
+                  	<c:forEach items="${list}" var="user">                 	
+                  		                  
+		                    <tr>		                    	
+		                    	<td>${user.name}</td>
+		                    	<td>${user.email}</td>
+		                    	<td>${user.phone_number}</td>
+		                    	<td>${user.address}</td>	
+		                    	
+		                       <td>${user.role_id}</td>
+		                    	<td>${user.name}</td>
+		                    	<td>${user.name}</td>            	
+		                    	<td>${user.created_date }</td>
+		                    	<td>${user.updated_date }</td>
+		                    	<td>-</td>
+		                    	<td>-</td>
+		                    	<td>-</td>	      
+		                    	<td>-</td>	      
+		                    	
+		                    	<td>
+		                    		<a href="#">Delete</a>
+								</td>
+		                    </tr>  
+		                    
+		                    
+		                		 </c:forEach>
+                  
+                                </tbody>
+
                             </table>
                           </div>
                     </div>
