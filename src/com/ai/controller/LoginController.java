@@ -24,7 +24,7 @@ public class LoginController {
 	private UserDao dao;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView showRegister(ModelMap model) {
+	public ModelAndView showLogin(ModelMap model) {
 		ModelAndView mav = new ModelAndView("/auth/login");
 		mav.addObject("bean", new User());
 		return mav;

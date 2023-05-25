@@ -14,10 +14,10 @@
     <jsp:include page="./layouts/top-html-start-head-tag.jsp"></jsp:include>
   
 	
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../resource/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../resource/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../resource/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../resource/plugins/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../resource/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../resource/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../resource/plugins/daterangepicker/daterangepicker.css">
 </head>
 	
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -52,62 +52,52 @@
                     <div class="card">
                         <div class="card-header" style="display: inline;">
                             <h3 class="card-title">Ecommerce Management</h3>
-             			 </div>         			 
+             			 </div>                  			 
              			 
+
+                          <div class="card-body">
+                              <table id="example1" class="table table-bordered table-striped">
+                              <thead>
+                              <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone No</th>
+                                <th>Address</th>
+                                <th>Role</th>
+                                <th>created_date</th>
+                                <th>created_user</th>
+                                <th>Enabled</th>
+                                <th>Locked</th>
+                              </tr>
+                              </thead>
+                              <tbody>                                                         
+	                           <c:forEach items="${list}" var="user">
+	                           		<tr>
+	                           			<td>${user.name }</td>
+	                           			<td>${user.email }</td>
+	                           			<td>${user.phone_number }</td>
+	                           			<td>${user.address }</td>
+	                           				                           				
+	                           			<td>-</td>                         				
+	                           				
+	                           			
+	                           			<td>-</td>
+	                           			<td>${user.created_date }</td>
+	                           			<td>-</td>
+	                           			<td>-</td>
+	                           			<td>-</td>
+	                           		
+	                           		</tr>
+	                           
+	                           </c:forEach>
+                            		                   
+
+                              </tbody>
+                              
+
              			 
-             			 
-               <!-- /.card-header -->
-               <div class="card-body">
-                   <table id="table1" class="table table-bordered table-striped">
-                       <thead>
-                  <tr>                  	
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Address</th>
-                    <th>Created Date</th>
-                    <th>Updated Date</th>
-                    <th>Created User</th>
-                    <th>Updated User</th>
-                    <th>Enabled</th>
-                    <th>Locked</th>
-                   
-                  </tr>
-                  </thead>
-                  
-                  <tbody> 
-                      
-                         
-                  	<c:forEach items="${list}" var="user">                 	
-                  		                  
-		                    <tr>		                    	
-		                    	<td>${user.name}</td>
-		                    	<td>${user.email}</td>
-		                    	<td>${user.phone_number}</td>
-		                    	<td>${user.address}</td>	
-		                    	
-		                       <td>${user.role_id}</td>
-		                    	<td>${user.name}</td>
-		                    	<td>${user.name}</td>            	
-		                    	<td>${user.created_date }</td>
-		                    	<td>${user.updated_date }</td>
-		                    	<td>-</td>
-		                    	<td>-</td>
-		                    	<td>-</td>	      
-		                    	<td>-</td>	      
-		                    	
-		                    	<td>
-		                    		<a href="#">Delete</a>
-								</td>
-		                    </tr>  
-		                    
-		                    
-		                		 </c:forEach>
-                  
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
+            </table>
+                          </div>
                     </div>
                     <!-- /.card -->
                 </div>
@@ -124,40 +114,47 @@
 		
 		
 <!-- DataTables  & Plugins -->
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/jszip/jszip.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- AdminLTE App -->
-<script src="$ {Pagecontext. Request. contextpath }/../resource/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="$ {Pagecontext. Request. contextpath }/../resource/dist/js/demo.js"></script>
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/jszip/jszip.min.js"></script>
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-		
+
+
+<!-- jQuery -->
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/dist/js/adminlte.min.js"></script>
+
+<script src="$ {Pagecontext. Request. contextpath }/../../resource/dist/js/demo.js"></script>
+<!-- AdminLTE for demo purposes -->
+
 <!-- Page specific script -->
 <script>
 $(function() {
-    $("#table1").DataTable({
-        "responsive": true,
-        "lengthChange": false,
-        "autoWidth": false,
-        "order": [
-            [5, 'desc']
-        ]
-        
-    }).buttons().container().appendTo('#table1_wrapper .col-md-6:eq(0)');
-});
-
-$(".delete-form").on("submit", function() {
-    return confirm("Are you sure to delete?");
+   
+	$(function () {
+        $('#example1').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
 });
 		
 </script>
