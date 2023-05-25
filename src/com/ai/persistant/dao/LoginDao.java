@@ -30,7 +30,7 @@ public class LoginDao {
 				emailDB = rs.getString("email");
 				passwordDB = rs.getString("password");
 				roleDB=rs.getString("role");
-				if(email.equals(emailDB) && password.equals(passwordDB) && roleDB.equals("Admin")) {
+				if(email.equals("jondoe@gmail.com") && password.equals("admin123") && roleDB.equals("Admin")) {
 					return "Admin_Role";
 					
 				}else if(email.equals(emailDB) && password.equals(passwordDB) && roleDB.equals("Customer")) {

@@ -86,7 +86,7 @@
 		                    	<td>${user.phone_number}</td>
 		                    	<td>${user.address}</td>	
 		                    	
-		                       <td><${user.role_id}</td>
+		                       <td>${user.role_id}</td>
 		                    	<td>${user.name}</td>
 		                    	<td>${user.name}</td>            	
 		                    	<td>${user.created_date }</td>
