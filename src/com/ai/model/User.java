@@ -66,6 +66,7 @@ public class User implements Serializable{
 	public void setRole_id(int role_id) {
 		this.role_id = role_id;
 	}
+	
 	@Column
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private String created_date;
@@ -74,7 +75,7 @@ public class User implements Serializable{
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private String updated_date;
 	
-	 @Column
+	@Column
 	private String created_user;
 	 
 	 @Column

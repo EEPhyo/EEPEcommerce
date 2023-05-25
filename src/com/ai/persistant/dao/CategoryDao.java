@@ -22,12 +22,13 @@ public class CategoryDao {
 	//insert
 	public int insertData(CategoryDto category) {
 		int result =0;
-		String sql = "INSERT INTO category(id,name VALUES (?,?)";
+		String sql = "INSERT INTO category (id,name,created_date) VALUES (?,?,?)";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1,category.getId());
 			ps.setString(2,category.getName());
+			ps.setString(3, category.getCreated_date());
 			result=ps.executeUpdate();			
 		}catch (SQLException e) {
 			System.out.println("Database error");
@@ -40,15 +41,18 @@ public class CategoryDao {
 	//update
 	public int updateData(CategoryDto category) {
 		int result =0;
-		String sql = "UPDATE category SET name=? WHERE id=?";
+		String sql = "UPDATE category SET name=?,created_date=? WHERE id=?";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			
 			ps.setString(1,category.getName());
+			ps.setString(2, category.getCreated_date());
+			ps.setInt(3, category.getId());
 			result=ps.executeUpdate();			
 		}catch (SQLException e) {
 			System.out.println("Database error");
+			e.printStackTrace();
 		}
 		return result;
 		
@@ -65,6 +69,7 @@ public class CategoryDao {
 			result=ps.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Database error");
+			e.printStackTrace();
 		}
 		return result;
 	}
@@ -76,13 +81,16 @@ public class CategoryDao {
 		PreparedStatement ps;
 		try {
 			ps = con.prepareStatement(sql);
+			ps.setInt(1, category.getId());
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				rs.getInt("id");
-				res.setName(rs.getString("name"));				
+				res.setName(rs.getString("name"));	
+				res.setCreated_date(rs.getString("created_date"));
 			}
 		} catch (SQLException e) {
 			System.out.println("Database error");
+			e.printStackTrace();
 		}
 		return res;			
 	}
@@ -97,12 +105,16 @@ public class CategoryDao {
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				CategoryDto res = new CategoryDto();
-				rs.getInt("id");
+				res.setId(rs.getInt("id"));
 				res.setName(rs.getString("name"));
+				res.setCreated_date(rs.getString("created_date"));
+				list.add(res);
 			}
+			
 			
 		} catch (SQLException e) {
 			System.out.println("Database error");
+			e.printStackTrace();
 		}
 		return list;
 	}

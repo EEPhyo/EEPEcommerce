@@ -12,12 +12,4 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="$ {Pagecontext. Request. contextpath }/../resource/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- AdminLTE App -->
-<script src="$ {Pagecontext. Request. contextpath }/../resource/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
 

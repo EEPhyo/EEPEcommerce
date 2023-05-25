@@ -24,7 +24,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/ClothingProj/list" class="nav-link">
                             <i class="nav-icon fas fa-users"></i>
                             <p>
                                 User List
@@ -33,7 +33,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/dashboard" class="nav-link">
+                                <a href="/ClothingProj/list" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>User List</p>
                                 </a>
@@ -43,7 +43,7 @@
                   </li>          
                   
                  <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="/ClothingProj/category" class="nav-link">
                             <i class="nav-icon fas fa-cog"></i>
                             <p>
                                 Categories List
@@ -52,13 +52,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="/ClothingProj/category" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Categories List</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/categories/create" class="nav-link">
+                                <a href="/ClothingProj/setupaddCategory" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Add New Category</p>
                                 </a>

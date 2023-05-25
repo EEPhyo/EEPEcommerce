@@ -26,8 +26,12 @@ public class HomeController {
 	
 	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public String displayView(ModelMap m) {
-		ArrayList<UserDto> list = dao.User_List();
-		m.addAttribute("list",list);		
+		ArrayList<UserDto> list = dao.selectAll();
+		m.addAttribute("list",list);
+		
+		ArrayList<RoleDto> list1=role.selectRole();
+		m.addAttribute("role",list1);
+		
 		return "dashboard";
 	}
 }
