@@ -2,11 +2,11 @@ package com.ai.model;
 
 import java.io.Serializable;
 
-public class Payment_Type implements Serializable{
+public class Payment_type implements Serializable{
 	private int id;
 	private String value;
 	
-	public Payment_Type() {}
+	public Payment_type() {}
 	
 	public int getId() {
 		return id;

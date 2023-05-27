@@ -17,6 +17,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 <bean id="roleDao" class="com.ai.persistant.dao.RoleDao"/>
  <bean id="categoryDao" class="com.ai.persistant.dao.CategoryDao"/>
 <bean id="productDao" class="com.ai.persistant.dao.ProductDao"/>
+<bean id="shop_orderDao" class="com.ai.persistant.dao.Shop_orderDao"/>
+<bean id="transitionDao" class="com.ai.persistant.dao.Shop_orderDao"/>
 
 <bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
  <context:annotation-config/>
