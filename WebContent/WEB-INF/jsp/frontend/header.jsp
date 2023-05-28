@@ -1,4 +1,8 @@
-<!-- header -->
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	<header class="header">
 		<div class="container">
 			<div class="row">
@@ -6,7 +10,7 @@
 					<div class="header__content">
 						<div class="header__logo">
 							<a href="home.jsp">
-								<img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/logo3.png" alt="logo">
+								<img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/logo3.png" alt="logo">
 							</a>
 						</div>
 						
@@ -46,8 +50,8 @@
 									<a class="header__nav-link header__nav-link--menu" href="#" role="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,10a2,2,0,1,0,2,2A2,2,0,0,0,12,10ZM5,10a2,2,0,1,0,2,2A2,2,0,0,0,5,10Zm14,0a2,2,0,1,0,2,2A2,2,0,0,0,19,10Z"/></svg></a>
 									
 									<ul class="dropdown-menu header__nav-menu" aria-labelledby="dropdownMenu2">
-										<li><a href="../login.jsp">Sign in</a></li>
-										<li><a href="../register.jsp">Sign up</a></li>
+										 <li><a href="<c:url value='/login' />">Sign in</a></li>
+   										 <li><a href="<c:url value='/register' />">Sign up</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -72,7 +76,7 @@
 						<div class="header__actions">
 							<div class="header__action">
 								<a class="header__profile-btn" href="#" role="button" id="dropdownMenuProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/cart.png" alt="cart" width="50%">
+									<img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/cart.png" alt="cart" width="50%">
 								</a>
 								
 								<ul class="dropdown-menu header__profile-menu" aria-labelledby="dropdownMenuProfile">

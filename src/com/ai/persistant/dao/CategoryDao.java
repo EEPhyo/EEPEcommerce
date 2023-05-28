@@ -22,11 +22,11 @@ public class CategoryDao {
 	//insert
 	public int insertData(CategoryDto category) {
 		int result =0;
-		String sql = "INSERT INTO category (id,name,created_date) VALUES (?,?,?)";
+		String sql = "INSERT INTO category (category_id,name,created_date) VALUES (?,?,?)";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,category.getId());
+			ps.setInt(1,category.getCategory_id());
 			ps.setString(2,category.getName());
 			ps.setString(3, category.getCreated_date());
 			result=ps.executeUpdate();			
@@ -41,14 +41,14 @@ public class CategoryDao {
 	//update
 	public int updateData(CategoryDto category) {
 		int result =0;
-		String sql = "UPDATE category SET name=?,created_date=? WHERE id=?";
+		String sql = "UPDATE category SET name=?,created_date=? WHERE category_id=?";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			
 			ps.setString(1,category.getName());
 			ps.setString(2, category.getCreated_date());
-			ps.setInt(3, category.getId());
+			ps.setInt(3, category.getCategory_id());
 			result=ps.executeUpdate();			
 		}catch (SQLException e) {
 			System.out.println("Database error");
@@ -61,11 +61,11 @@ public class CategoryDao {
 	//delete
 	public int deleteData(CategoryDto category) {
 		int result=0;
-		String sql = "DELETE FROM category where id=?";		
+		String sql = "DELETE FROM category where category_id=?";		
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,category.getId());
+			ps.setInt(1,category.getCategory_id());
 			result=ps.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Database error");
@@ -76,15 +76,15 @@ public class CategoryDao {
 	//select single book
 	public CategoryDto selectOne(CategoryDto category) {
 		CategoryDto res = new CategoryDto();
-		String sql = "SELECT * from category where id=?";
+		String sql = "SELECT * from category where category_id=?";
 		
 		PreparedStatement ps;
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, category.getId());
+			ps.setInt(1, category.getCategory_id());
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				rs.getInt("id");
+				res.getCategory_id();		
 				res.setName(rs.getString("name"));	
 				res.setCreated_date(rs.getString("created_date"));
 			}
@@ -97,7 +97,7 @@ public class CategoryDao {
 	
 	//selectAll
 	public ArrayList<CategoryDto> selectAll() {
-		ArrayList<CategoryDto> list = new ArrayList<>();
+		ArrayList<CategoryDto> list1 = new ArrayList<>();
 		String sql = "SELECT * FROM category";
 		
 		try {
@@ -105,10 +105,10 @@ public class CategoryDao {
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				CategoryDto res = new CategoryDto();
-				res.setId(rs.getInt("id"));
+				res.setCategory_id(rs.getInt("category_id"));
 				res.setName(rs.getString("name"));
 				res.setCreated_date(rs.getString("created_date"));
-				list.add(res);
+				list1.add(res);
 			}
 			
 			
@@ -116,7 +116,7 @@ public class CategoryDao {
 			System.out.println("Database error");
 			e.printStackTrace();
 		}
-		return list;
+		return list1;
 	}
 		
 	}

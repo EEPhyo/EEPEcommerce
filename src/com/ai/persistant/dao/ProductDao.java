@@ -23,18 +23,21 @@ public static Connection con=null;
 	//insert
 	public int insertData(ProductDto product) {
 		int result =0;
-		String sql = "INSERT INTO user(id,name,description,image,quantity,price,is_stock,is_deleted) VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO product (id,category_id,color_id,size_id,name,description,image,quantity,price,is_stock) VALUES (?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1,product.getId());
-			ps.setString(2,product.getName());
-			ps.setString(3, product.getDescription());
-			ps.setString(4, product.getImage());
-			ps.setString(5, product.getQuantity());
-			ps.setDouble(6, product.getPrice());
-			ps.setBoolean(7,product.isIs_stock());
-			ps.setBoolean(8, product.isIs_deleted());
+			ps.setInt(2,product.getCategory_id() );
+			ps.setInt(3, product.getColor_id());
+			ps.setInt(4, product.getSize_id());
+			ps.setString(5,product.getName());
+			ps.setString(6, product.getDescription());
+			ps.setString(7, product.getImage());
+			ps.setLong(8, product.getQuantity());
+			ps.setDouble(9, product.getPrice());
+			ps.setBoolean(10,product.getIs_stock());
+//			ps.setBoolean(11, product.getIs_deleted());
 			result=ps.executeUpdate();			
 		}catch (SQLException e) {
 			System.out.println("Database error");
@@ -47,18 +50,21 @@ public static Connection con=null;
 	//update
 	public int updateData(ProductDto product) {
 		int result =0;
-		String sql = "UPDATE user SET name=?,email=?,description=?,image=?,quantity=?,price=?,is_stock=?,is_deleted=? WHERE id=?";
+		String sql = "UPDATE product SET name=?,category_id=?,color_id=?,size_id=?,description=?,image=?,quantity=?,price=?,is_stock=? WHERE id=?";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			
 			ps.setString(1,product.getName());
-			ps.setString(2, product.getDescription());
-			ps.setString(3, product.getImage());
-			ps.setString(4, product.getQuantity());
-			ps.setDouble(5, product.getPrice());
-			ps.setBoolean(6,product.isIs_stock());
-			ps.setBoolean(7, product.isIs_deleted());
+			ps.setInt(2, product.getCategory_id());
+			ps.setInt(3, product.getColor_id());
+			ps.setInt(4, product.getSize_id());
+			ps.setString(5, product.getDescription());
+			ps.setString(6, product.getImage());
+			ps.setInt(7, product.getQuantity());
+			ps.setDouble(8, product.getPrice());
+			ps.setBoolean(9,product.getIs_stock());
+//			ps.setBoolean(10, product.getIs_deleted());
 			result=ps.executeUpdate();			
 		}catch (SQLException e) {
 			System.out.println("Database error");
@@ -70,7 +76,7 @@ public static Connection con=null;
 	//delete
 	public int deleteData(ProductDto product) {
 		int result=0;
-		String sql = "DELETE FROM user where id=?";		
+		String sql = "DELETE FROM product where id=?";		
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -82,23 +88,27 @@ public static Connection con=null;
 		return result;
 	}
 	//select single book
-	public ProductDto selectOne(ProductDto user) {
+	public ProductDto selectOne(ProductDto dto) {
 		ProductDto res = new ProductDto();
-		String sql = "SELECT * from user where id=?";
+		String sql = "SELECT * from product where id=?";
 		
 		PreparedStatement ps;
 		try {
 			ps = con.prepareStatement(sql);
+			ps.setInt(1, dto.getId());
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				rs.getInt("id");
 				res.setName(rs.getString("name"));
+				res.setCategory_id(rs.getInt("category_id"));
+				res.setColor_id(rs.getInt("color_id"));
+				res.setSize_id(rs.getInt("size_id"));				
 				res.setDescription(rs.getString("description"));
-				res.setImage(rs.getString("image"));	
-				res.setQuantity(rs.getString("quantity"));
+				res.setImage(rs.getBytes("image"));	
+				res.setQuantity(rs.getInt("quantity"));
 				res.setPrice(rs.getDouble("price"));
 				res.setIs_stock(rs.getBoolean("is_stock"));
-				res.setIs_deleted(rs.getBoolean("is_deleted"));
+//				res.setIs_deleted(rs.getBoolean("is_deleted"));
 				
 			}
 		} catch (SQLException e) {
@@ -109,33 +119,41 @@ public static Connection con=null;
 	
 	//selectAll
 	public ArrayList<ProductDto> selectAll() {
-		ArrayList<ProductDto> list = new ArrayList<>();
-		String sql = "SELECT * FROM user";
-		
-		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			ResultSet rs=ps.executeQuery();
-			while(rs.next()) {
-				ProductDto res = new ProductDto();
-				rs.getInt("id");
-				res.setName(rs.getString("name"));
-				res.setDescription(rs.getString("description"));
-				res.setImage(rs.getString("image"));	
-				res.setQuantity(rs.getString("quantity"));
-				res.setPrice(rs.getDouble("price"));
-				res.setIs_stock(rs.getBoolean("is_stock"));
-				res.setIs_deleted(rs.getBoolean("is_deleted"));
-			}
-			
-		} catch (SQLException e) {
-			System.out.println("Database error");
-		}
-		return list;
-	}
+	    ArrayList<ProductDto> list = new ArrayList<>();
+	    String sql = "SELECT p.*, c.name AS color_name, s.value AS size_value, cat.name AS category_name " +
+                "FROM product p " +
+                "JOIN color c ON p.color_id = c.color_id " +
+                "JOIN size s ON p.size_id = s.size_id " +
+                "JOIN category cat ON p.category_id = cat.category_id " +
+                "ORDER BY p.id DESC";
 
-	public void addProduct(Product product) {
-		// TODO Auto-generated method stub
-		
-	}
+	    try {
+	        PreparedStatement ps = con.prepareStatement(sql);
+	        ResultSet rs = ps.executeQuery();
+	        while (rs.next()) {
+	            ProductDto res = new ProductDto();
+	            res.setId(rs.getInt("id"));
+	            res.setName(rs.getString("name"));
+	            res.setCategory_id(rs.getInt("category_id"));
+	            res.setColor_id(rs.getInt("color_id"));
+	            res.setSize_id(rs.getInt("size_id"));
+	            res.setDescription(rs.getString("description"));
+	            res.setImage(rs.getBytes("image"));
+	            res.setQuantity(rs.getInt("quantity"));
+	            res.setPrice(rs.getDouble("price"));
+	            res.setIs_stock(rs.getBoolean("is_stock"));
+	            res.setColor_name(rs.getString("color_name"));
+	            res.setSize_value(rs.getString("size_value"));
+	            res.setCategory_name(rs.getString("category_name"));
+	            list.add(res);
+	        }
+	    } catch (SQLException e) {
+	        System.out.println("Database error: " + e.getMessage());
+	    }
+	    return list;
+}
+
+
+	
 		
 	}

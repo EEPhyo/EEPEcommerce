@@ -12,41 +12,41 @@
 	<!-- Title Tag  -->
 	<title>Ecommerce Shop</title>
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/logo.jpg" width="30%">
+	<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/resource/frontedn_ui/images/logo.jpg" width="30%">
 	<!-- Web Font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 	
 	<!-- StyleSheet -->
 	
 	<!-- Bootstrap -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/bootstrap.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/bootstrap.css">
 	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/magnific-popup.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/magnific-popup.min.css">
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/font-awesome.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/font-awesome.css">
 	<!-- Fancybox -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/jquery.fancybox.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/jquery.fancybox.min.css">
 	<!-- Themify Icons -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/themify-icons.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/themify-icons.css">
 	<!-- Nice Select CSS -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/niceselect.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/niceselect.css">
 	<!-- Animate CSS -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/animate.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/animate.css">
 	<!-- Flex Slider CSS -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/flex-slider.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/flex-slider.min.css">
 	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/owl-carousel.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/owl-carousel.css">
 	<!-- Slicknav -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/slicknav.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/slicknav.min.css">
 
-    <link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/elegant-icons.css" type="text/css">
 
-    <link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/style.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/style.css" type="text/css">
 	<!-- Eshop StyleSheet -->
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/reset.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/reset.css">
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/responsive.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/responsive.css">
 	
 	
 	
@@ -73,7 +73,7 @@
 					<div class="header__content">
 						<div class="header__logo">
 							<a href="index.html">
-								<img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/logo3.png" alt="logo">
+								<img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/logo3.png" alt="logo">
 							</a>
 						</div>
 						
@@ -139,7 +139,7 @@
 						<div class="header__actions">
 							<div class="header__action">
 								<a class="header__profile-btn" href="#" role="button" id="dropdownMenuProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/cart.png" alt="cart" width="50%">
+									<img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/cart.png" alt="cart" width="50%">
 								</a>
 								
 								<ul class="dropdown-menu header__profile-menu" aria-labelledby="dropdownMenuProfile">
@@ -332,12 +332,12 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/product/product-2.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resource/frontedn_ui/images/product/product-2.jpg">
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -367,13 +367,13 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item sale">
-                                <div class="product__item__pic set-bg" data-setbg="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/product/product-3.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resource/frontedn_ui/images/product/product-3.jpg">
                                     <span class="label">Sale</span>
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -403,12 +403,12 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/product/product-4.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resource/frontedn_ui/images/product/product-4.jpg">
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -438,13 +438,13 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item sale">
-                                <div class="product__item__pic set-bg" data-setbg="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/product/product-6.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resource/frontedn_ui/images/product/product-6.jpg">
                                     <span class="label">Sale</span>
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -474,12 +474,12 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/product/product-7.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resource/frontedn_ui/images/product/product-7.jpg">
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -509,12 +509,12 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/product/product-8.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resource/frontedn_ui/images/product/product-8.jpg">
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -544,12 +544,12 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/product/product-9.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resource/frontedn_ui/images/product/product-9.jpg">
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -579,13 +579,13 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item sale">
-                                <div class="product__item__pic set-bg" data-setbg="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/product/product-10.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resource/frontedn_ui/images/product/product-10.jpg">
                                     <span class="label">Sale</span>
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -615,12 +615,12 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/product/product-11.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resource/frontedn_ui/images/product/product-11.jpg">
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -650,13 +650,13 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item sale">
-                                <div class="product__item__pic set-bg" data-setbg="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/product/product-12.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resource/frontedn_ui/images/product/product-12.jpg">
                                     <span class="label">Sale</span>
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -686,12 +686,12 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/product/product-13.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resource/frontedn_ui/images/product/product-13.jpg">
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -721,12 +721,12 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/product/product-14.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="${pageContext.request.contextPath}/resource/frontedn_ui/images/product/product-14.jpg">
                                     <ul class="product__hover">
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/heart.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/compare.png" alt=""> <span>Compare</span></a>
                                         </li>
-                                        <li><a href="#"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -796,7 +796,7 @@
 							<!-- Single Widget -->
 							<div class="single-footer about">
 								<div class="logo">
-									<a href="index.html"><img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/logo2.png" alt="#"></a>
+									<a href="index.html"><img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/logo2.png" alt="#"></a>
 								</div>
 								<p class="text">Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue,  magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
 								<p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
@@ -869,7 +869,7 @@
 							</div>
 							<div class="col-lg-6 col-12">
 								<div class="right">
-									<img src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/images/payments.png" alt="#">
+									<img src="${pageContext.request.contextPath}/resource/frontedn_ui/images/payments.png" alt="#">
 								</div>
 							</div>
 						</div>
@@ -880,48 +880,48 @@
 		<!-- /End Footer Area -->
 		
 		<!-- Jquery -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/jquery.min.js"></script>
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/jquery-migrate-3.0.0.js"></script>
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/jquery-ui.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/jquery.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/jquery-migrate-3.0.0.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/jquery-ui.min.js"></script>
 		<!-- Popper JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/popper.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/popper.min.js"></script>
 		<!-- Bootstrap JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/bootstrap.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/bootstrap.min.js"></script>
 		<!-- Color JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/colors.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/colors.js"></script>
 		<!-- Slicknav JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/slicknav.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/slicknav.min.js"></script>
 		<!-- Owl Carousel JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/owl-carousel.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/owl-carousel.js"></script>
 		<!-- Magnific Popup JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/magnific-popup.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/magnific-popup.js"></script>
 		<!-- Waypoints JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/waypoints.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/waypoints.min.js"></script>
 		<!-- Countdown JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/finalcountdown.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/finalcountdown.min.js"></script>
 		<!-- Nice Select JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/nicesellect.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/nicesellect.js"></script>
 		<!-- Flex Slider JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/flex-slider.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/flex-slider.js"></script>
 		<!-- ScrollUp JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/scrollup.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/scrollup.js"></script>
 		<!-- Onepage Nav JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/onepage-nav.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/onepage-nav.min.js"></script>
 		<!-- Easing JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/easing.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/easing.js"></script>
 		<!-- Active JS -->
-		<script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/active.js"></script>
+		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/active.js"></script>
 
             <!-- Js Plugins -->
         
         
-        <script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/jquery.nice-select.min.js"></script>
-        <script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/jquery.nicescroll.min.js"></script>
-        <script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/jquery.magnific-popup.min.js"></script>
-        <script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/jquery.countdown.min.js"></script>
-        <script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/jquery.slicknav.js"></script>
-        <script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/mixitup.min.js"></script>
-        <script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/owl.carousel.min.js"></script>
-        <script src="$ {Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/js/main.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/jquery.nice-select.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/jquery.nicescroll.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/jquery.magnific-popup.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/jquery.countdown.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/jquery.slicknav.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/mixitup.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/owl.carousel.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/main.js"></script>
 	</body>
 	</html>

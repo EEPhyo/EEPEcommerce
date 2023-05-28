@@ -22,11 +22,11 @@ public class ColorDao {
 		//insert
 		public int insertData(ColorDto color) {
 			int result =0;
-			String sql = "INSERT INTO color(id,name,code VALUES (?,?,?)";
+			String sql = "INSERT INTO color (color_id,name,code) VALUES (?,?,?)";
 			
 			try {
 				PreparedStatement ps = con.prepareStatement(sql);
-				ps.setInt(1,color.getId());
+				ps.setInt(1,color.getColor_id());
 				ps.setString(2,color.getName());
 				ps.setString(3,color.getCode() );
 				result=ps.executeUpdate();			
@@ -41,7 +41,7 @@ public class ColorDao {
 		//update
 		public int updateData(ColorDto color) {
 			int result =0;
-			String sql = "UPDATE color SET name=?,code=? WHERE id=?";
+			String sql = "UPDATE color SET name=?,code=? WHERE color_id=?";
 			
 			try {
 				PreparedStatement ps = con.prepareStatement(sql);
@@ -59,11 +59,11 @@ public class ColorDao {
 		//delete
 		public int deleteData(ColorDto color) {
 			int result=0;
-			String sql = "DELETE FROM color where id=?";		
+			String sql = "DELETE FROM color where color_id=?";		
 			
 			try {
 				PreparedStatement ps = con.prepareStatement(sql);
-				ps.setInt(1,color.getId());
+				ps.setInt(1,color.getColor_id());
 				result=ps.executeUpdate();
 			} catch (SQLException e) {
 				System.out.println("Database error");
@@ -73,14 +73,14 @@ public class ColorDao {
 		//select single book
 		public ColorDto selectOne(ColorDto color) {
 			ColorDto res = new ColorDto();
-			String sql = "SELECT * from color where id=?";
+			String sql = "SELECT * from color where color_id=?";
 			
 			PreparedStatement ps;
 			try {
 				ps = con.prepareStatement(sql);
 				ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
-					rs.getInt("id");
+					res.setColor_id(rs.getInt("color_id"));
 					res.setName(rs.getString("name"));
 					res.setCode(rs.getString("code"));
 				}
@@ -92,7 +92,7 @@ public class ColorDao {
 		
 		//selectAll
 		public ArrayList<ColorDto> selectAll() {
-			ArrayList<ColorDto> list = new ArrayList();
+			ArrayList<ColorDto> list = new ArrayList<>();
 			String sql = "SELECT * FROM color";
 			
 			try {
@@ -100,9 +100,10 @@ public class ColorDao {
 				ResultSet rs=ps.executeQuery();
 				while(rs.next()) {
 					ColorDto res = new ColorDto();
-					rs.getInt("id");
+					res.setColor_id(rs.getInt("color_id"));
 					res.setName(rs.getString("name"));
 					res.setCode(rs.getString("code"));
+					list.add(res);
 				}
 				
 			} catch (SQLException e) {

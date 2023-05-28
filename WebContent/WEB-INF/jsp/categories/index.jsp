@@ -12,10 +12,10 @@
    <jsp:include page="../layouts/top-html-start-head-tag.jsp"></jsp:include>
   
 	
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../resource/plugins/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/daterangepicker/daterangepicker.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -47,17 +47,17 @@
                                 </thead>
                                 
                                 <tbody>
-									 <c:forEach items="${list}" var="category">                                   
+									 <c:forEach items="${categories}" var="category">                                   
                                  	  <tr>                                                        
-                                       <td>${category.id}</td>         
+                                       <td>${category.category_id}</td>         
                                        <td>${category.name }</td>
                                        <td>${category.created_date }
                                         <td>
                                                                                         
-                                            <a href="/ClothingProj/setupdateCategory/${category.id }"
-                                                    class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>                                  
-                                          
-                                            <a href="/ClothingProj/deleteCategory/${category.id}"
+                                          <a href="/ClothingProj//setupdateCategory/${category.category_id}"
+   											class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
+
+                                            <a href="/ClothingProj/deleteCategory/${category.category_id}"
                                              class="btn btn-danger btn-sm delete_btn"><i class="fas fa-trash"></i></a>                                  
                                                                                    
                                                                                   
@@ -85,22 +85,22 @@
 		
 		
 <!-- DataTables  & Plugins -->
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/jszip/jszip.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/jszip/jszip.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE App -->
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/dist/js/adminlte.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/dist/js/demo.js"></script>
+<script src="${pageContext.request.contextPath}/resource/dist/js/demo.js"></script>
 
 		
 <!-- Page specific script -->

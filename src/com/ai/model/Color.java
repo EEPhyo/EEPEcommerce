@@ -15,12 +15,11 @@ import java.util.Set;
 
 @Entity
 @Table(name="color")
-
-
 public class Color implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)		
-	private int id;
+	private int color_id;
+	
 	
 	@Column(name="name")
 	private String name;
@@ -34,13 +33,15 @@ public class Color implements Serializable{
 	
 	public Color() {}
 	
-	public int getId() {
-		return id;
+	public int getColor_id() {
+		return color_id;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	public void setColor_id(int color_id) {
+		this.color_id = color_id;
 	}
-	public String getName() {
+	
+		public String getName() {
 		return name;
 	}
 	public void setName(String name) {
