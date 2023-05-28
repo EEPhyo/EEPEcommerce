@@ -12,10 +12,10 @@
     
     <jsp:include page="../layouts/top-html-start-head-tag.jsp"></jsp:include>  
 	
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-	<link rel="stylesheet" href="$ {Pagecontext. Request. contextpath }/../../resource/plugins/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/daterangepicker/daterangepicker.css">
 </head>
 	
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -34,7 +34,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="/ClothingProj/category">Categories List</a></li>
+                                <li class="breadcrumb-item"> <a href="<c:url value='/category' />">Categories List</a></li>
                                 <li class="breadcrumb-item active">update</li>
                             </ol>
                         </div>
@@ -74,7 +74,7 @@
                                     
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary">Update</button>
-                                         <button type="reset" class="btn btn-default" style="float: right;">Cancel</button>
+                                          <a href="<c:url value='/category' />" class="btn btn-default" style="float: right;">Cancel</a>
                                     </div>
                                 </form:form>
                             </div>                            
@@ -90,22 +90,22 @@
 		
 		
 <!-- DataTables  & Plugins -->
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/jszip/jszip.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/jszip/jszip.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE App -->
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/dist/js/adminlte.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/dist/js/demo.js"></script>
+<script src="${pageContext.request.contextPath}/resource/dist/js/demo.js"></script>
 
 <jsp:include page="../layouts/script-index.jsp"></jsp:include>
 		

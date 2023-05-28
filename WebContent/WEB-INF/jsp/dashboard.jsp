@@ -14,10 +14,10 @@
     <jsp:include page="./layouts/top-html-start-head-tag.jsp"></jsp:include>
   
 	
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../resource/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../resource/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../resource/plugins/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/daterangepicker/daterangepicker.css">
 </head>
 	
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -54,8 +54,12 @@
                             <h3 class="card-title">Ecommerce Management</h3>
              			 </div>                  			 
              			 
+<<<<<<< HEAD
+                         <div class="card-body">
+=======
 
                           <div class="card-body">
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
                               <table id="example1" class="table table-bordered table-striped">
                               <thead>
                               <tr>
@@ -92,11 +96,18 @@
 	                           </c:forEach>
                             		                   
 
+<<<<<<< HEAD
+                              </tbody>                  
+        			                                         
+
+                            </table>
+=======
                               </tbody>
                               
 
              			 
             </table>
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
                           </div>
                     </div>
                     <!-- /.card -->
@@ -114,49 +125,47 @@
 		
 		
 <!-- DataTables  & Plugins -->
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/jszip/jszip.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/jszip/jszip.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 
 
 <!-- jQuery -->
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- AdminLTE App -->
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/dist/js/adminlte.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/dist/js/adminlte.min.js"></script>
 
-<script src="$ {Pagecontext. Request. contextpath }/../../resource/dist/js/demo.js"></script>
+<script src="${pageContext.request.contextPath}/resource/dist/js/demo.js"></script>
 <!-- AdminLTE for demo purposes -->
 
 <!-- Page specific script -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(function() {
-   
-	$(function () {
+    $(document).ready(function() {
         $('#example1').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
+            paging: true,
+            lengthChange: false,
+            searching: false,
+            ordering: true,
+            info: true,
+            autoWidth: false,
+            responsive: true
         });
     });
-});
-		
 </script>
+
 </body>
 </html>

@@ -220,7 +220,7 @@ public class UserDao {
 			        user.setUpdated_user(rs.getString("updated_user"));
 			
 			        RoleDto role = new RoleDto();
-			        role.setId(rs.getInt("id"));
+			        role.setRole_id(rs.getInt("id"));
 		            role.setRole_name(rs.getString("role_name"));
 		            user.add(role);
 			

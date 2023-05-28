@@ -25,12 +25,12 @@ public class RoleDao {
 	//insert
 		public int insertData(RoleDto role) {
 			int result =0;
-			String sql = "INSERT INTO role(id,role_name) VALUES (?,?)";
+			String sql = "INSERT INTO role (role_id,role_name) VALUES (?,?)";
 			
 			
 			try {
 				PreparedStatement ps = con.prepareStatement(sql);
-				ps.setInt(1,role.getId());
+				ps.setInt(1,role.getRole_id());
 				ps.setString(2,role.getRole_name());
 				
 				result=ps.executeUpdate();			
@@ -46,12 +46,12 @@ public class RoleDao {
 		//edit
 		public int updateData(RoleDto role) {
 			int result =0;
-			String sql = "UPDATE role SET role_name=? WHERE id=?";
+			String sql = "UPDATE role SET role_name=? WHERE role_id=?";
 			
 			
 			try {
 				PreparedStatement ps = con.prepareStatement(sql);
-				ps.setInt(1,role.getId());
+				ps.setInt(1,role.getRole_id());
 				ps.setString(2,role.getRole_name());
 				
 				result=ps.executeUpdate();			
@@ -66,11 +66,11 @@ public class RoleDao {
 		//delete
 		public int deleteData(RoleDto role) {
 			int result=0;
-			String sql = "DELETE FROM role where id=?";		
+			String sql = "DELETE FROM role where role_id=?";		
 			
 			try {
 				PreparedStatement ps = con.prepareStatement(sql);
-				ps.setInt(1,role.getId());
+				ps.setInt(1,role.getRole_id());
 				result=ps.executeUpdate();
 			} catch (SQLException e) {
 				System.out.println("Database error");
@@ -88,7 +88,7 @@ public class RoleDao {
 			    ResultSet rs = ps.executeQuery();
 			    while (rs.next()) {
 			    	 RoleDto role = new RoleDto();
-				     role.setId(rs.getInt("role_id"));
+				     role.setRole_id(rs.getInt("role_id"));
 			         role.setRole_name(rs.getString("role_name"));
 			        
 			         list1.add(role);

@@ -14,8 +14,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class CategoryDto implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int category_id;
 	
+	public int getCategory_id() {
+		return category_id;
+	}
+
+	public void setCategory_id(int category_id) {
+		this.category_id = category_id;
+	}
 	@Column(name="name")
     private String name;
 	
@@ -28,13 +35,7 @@ public class CategoryDto implements Serializable{
 		created_date=LocalDate.now().format(DateTimeFormatter.ISO_DATE);
 	}
 	
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getName() {
+      public String getName() {
         return name;
     }
     public void setName(String name) {

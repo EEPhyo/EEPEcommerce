@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
+                        
+=======
             
     
     
@@ -24,12 +27,16 @@
     
     
     
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
     
     
     
     
     <wb-module deploy-name="ClothingProj-0.0.1-SNAPSHOT">
         <wb-resource deploy-path="/WEB-INF/web.xml" source-path="/WebContent/WEB-INF/web.xml"/>
+<<<<<<< HEAD
+                                                
+=======
                         
         
         
@@ -45,11 +52,15 @@
         
         
         
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
         
         
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+<<<<<<< HEAD
+                                                
+=======
                         
         
         
@@ -64,11 +75,27 @@
         
         
         
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
         
         
         
         
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+<<<<<<< HEAD
+                                                
+        
+        
+        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+                                                
+        
+        
+        
+        
+        <property name="context-root" value="ClothingProj"/>
+                                                
+=======
                 
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
                         
@@ -114,10 +141,15 @@
         
         
 
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
         
         
         
         
+<<<<<<< HEAD
+        <property name="java-output-path" value="/ClothingProj/target/classes"/>
+                                            
+=======
         
         
         
@@ -171,11 +203,19 @@
     
     
     
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
     
     
     
     
     </wb-module>
+<<<<<<< HEAD
+                    
+
+
+
+=======
         
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
 
 </project-modules>

@@ -27,14 +27,14 @@ public class CategoryController {
      @RequestMapping(value="/category",method=RequestMethod.GET)
      public String displayView(ModelMap m) {
  		ArrayList<CategoryDto> list = dao.selectAll();
- 		m.addAttribute("list",list);		
+ 		m.addAttribute("categories",list);		
  		return "/categories/index";
  		
  	}
      
      
     @RequestMapping(value="/setupaddCategory",method=RequestMethod.GET)
- 	public ModelAndView setupaddbook() {
+ 	public ModelAndView setupaddCategory() {
  		return new ModelAndView("categories/create","bean",new Category());		
  		
  	} 	
@@ -48,7 +48,7 @@ public class CategoryController {
  		}
     	 
     	 CategoryDto dto = new CategoryDto();
-    	 dto.getId();
+    	 dto.getCategory_id();
     	 dto.setName(category.getName());
     	 dto.setCreated_date(category.getCreated_date());
     	 int rs = dao.insertData(dto);
@@ -62,43 +62,40 @@ public class CategoryController {
     	 
      }
      
-
- 	@RequestMapping(value="/setupdateCategory/{id}", method=RequestMethod.GET) 
- 	public ModelAndView setupupdatebook(@PathVariable int id) {
- 		CategoryDto dto = new CategoryDto();
- 		dto.setId(id);
- 		ModelAndView modelAndView = new ModelAndView("/categories/update","bean",dao.selectOne(dto));
-		return modelAndView;
- 		
- 	}
-     
-     @RequestMapping(value="/update" ,method=RequestMethod.POST)
-     public String updateCategory(@ModelAttribute("bean") @Validated Category category, BindingResult result, ModelMap model) {
-		
-    	 if(result.hasErrors()) {
- 			model.addAttribute("error","Invalid Category required");
- 			return "/categories/update";
- 		}
-    	 
-    	 CategoryDto dto = new CategoryDto();
-    	 dto.setId(category.getId());
-    	 dto.setName(category.getName());
-    	 dto.setCreated_date(category.getCreated_date());
-    	 int rs = dao.updateData(dto);
-    	 
-    	 if(rs == 0) {
-    		 model.addAttribute("error","Update Failed");
-    		 return "/categories/update";
-    	 }
-    	 
-    	 return "redirect:/category";
+     @RequestMapping(value="/setupdateCategory/{category_id}", method=RequestMethod.GET) 
+     public ModelAndView setupdateCategory(@PathVariable int category_id) {
+         CategoryDto dto = new CategoryDto();         
+         dto.setCategory_id(category_id);
+        return new ModelAndView("/categories/update","bean",dao.selectOne(dto));
      }
+
+     @RequestMapping(value="/update", method=RequestMethod.POST)
+     public String updateCategory(@ModelAttribute("bean") @Validated Category category, BindingResult result, ModelMap model) {
+         if (result.hasErrors()) {
+             model.addAttribute("error", "Invalid Category required");
+             return "/categories/update";
+         }
+          
+         CategoryDto dto = new CategoryDto();
+         dto.setCategory_id(category.getCategory_id());
+         dto.setName(category.getName());
+         dto.setCreated_date(category.getCreated_date());
+         int rs = dao.updateData(dto);
+          
+         if (rs == 0) {
+             model.addAttribute("error", "Update Failed");
+             return "/categories/update";
+         }
+          
+         return "redirect:/category";
+     }
+
      
-     @RequestMapping(value="/deleteCategory/{id}", method=RequestMethod.GET) 
- 	public String deletebook(@PathVariable int id,ModelMap model){	
+     @RequestMapping(value="/deleteCategory/{category_id}", method=RequestMethod.GET) 
+ 	public String deletebook(@PathVariable int category_id,ModelMap model){	
     	 CategoryDto dto = new CategoryDto();
- 			dto.setId(id);
- 		int res = dao.deleteData(dto);
+    	  dto.setCategory_id(category_id);
+    	  int res = dao.deleteData(dto);
  		
  		if(res == 0) {
  			model.addAttribute("error","Delete Failed");

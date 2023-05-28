@@ -11,25 +11,30 @@ https://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
 
-
 <bean id="userDao" class="com.ai.persistant.dao.UserDao"/>
 <bean id="accountDao" class="com.ai.persistant.dao.AccountDao"/>
 <bean id="roleDao" class="com.ai.persistant.dao.RoleDao"/>
  <bean id="categoryDao" class="com.ai.persistant.dao.CategoryDao"/>
 <bean id="productDao" class="com.ai.persistant.dao.ProductDao"/>
-<bean id="shop_orderDao" class="com.ai.persistant.dao.Shop_orderDao"/>
-<bean id="transitionDao" class="com.ai.persistant.dao.Shop_orderDao"/>
 
 <bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
- <context:annotation-config/>
- <context:component-scan base-package="com.ai.controller"/> 
 
 
+
+<context:annotation-config/>
+<context:component-scan base-package="com.ai.controller"/> 
+ 
 <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix" value="/WEB-INF/jsp/"/>
     <property name="suffix" value=".jsp"/>
 </bean>  
  
+ <bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+</bean>
+<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
 	
 <mvc:resources mapping="/resource/**" location="/WEB-INF/resource/" />
 <mvc:annotation-driven />
@@ -37,7 +42,6 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		id="messageSource">
 		<property name="basename" value="messages" />
 	</bean>
-
-
+<<<<<<<<< Temporary merge branch 1
 
 </beans>

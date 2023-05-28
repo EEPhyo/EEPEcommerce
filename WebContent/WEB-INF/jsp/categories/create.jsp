@@ -37,7 +37,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="/ClothingProj/category">Categories List</a></li>
+                                <li class="breadcrumb-item"><a href="<a href=<c:url value='/category' />">Categories List</a></li>
                                 <li class="breadcrumb-item active">create</li>
                             </ol>
                         </div>
@@ -76,7 +76,7 @@
                                     
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary">Create</button>
-                                        <button type="reset" class="btn btn-default" style="float: right;">Cancel</button>
+                                        <a href="<c:url value='/category' />" class="btn btn-default" style="float: right;">Cancel</a>
                                     </div>
                                 </form:form>
                             </div>

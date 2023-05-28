@@ -1,5 +1,5 @@
 package com.ai.model;
-
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
@@ -24,17 +25,23 @@ public class Product implements Serializable{
 		private int id;
 		
 		@Column(name="name")
+		@NotEmpty
 		private String name;
 		
 		@Column(name="description")
+		@NotEmpty
 		private String description;
 		
 		@Column(name="image")
-		private String image;
+	
+//		@Size(max = 5 * 1024 * 1024, message = "Maximum file size exceeded")
+		private MultipartFile image;
+		
 		
 		@Column(name="quantity")
-		private String quantity;
+		private int quantity;
 		
+	
 		@Column(name="price")
 		private double price;
 
@@ -44,11 +51,17 @@ public class Product implements Serializable{
 		@Column(name="is_deleted")
 		private boolean is_deleted;
 		
-		@ManyToOne(fetch = FetchType.LAZY, optional = false)
-		@JoinColumn(name="category_id",nullable = false)
-		private Category category;
+		@Column(name="category_id")
+		private int category_id;
+		
+		@Column(name="color_id")
+		private int color_id;
+		
+		@Column(name="size_id")
+		private int size_id;
 		
 		public Product() {}
+		
 		public int getId() {
 			return id;
 		}
@@ -63,14 +76,6 @@ public class Product implements Serializable{
 
 		public void setName(String name) {
 			this.name = name;
-		}
-
-		public String getImage() {
-			return image;
-		}
-
-		public void setImage(String image) {
-			this.image = image;
 		}
 
 		public String getDescription() {
@@ -99,16 +104,43 @@ public class Product implements Serializable{
 		public void setPrice(double price) {
 			this.price = price;
 		}
-		public void setProductCategory(String string) {
-			// TODO Auto-generated method stub
-			
+				
+		public int getQuantity() {
+			return quantity;
 		}
-		public MultipartFile getProductImage() {
-			// TODO Auto-generated method stub
-			return null;
+		public void setQuantity(int quantity) {
+			this.quantity = quantity;
 		}
-		public String getProductId() {
-			// TODO Auto-generated method stub
-			return null;
+
+		public void setCategory_id(int category_id) {
+			this.category_id = category_id;
+		}
+		
+		public int getCategory_id() {
+			return category_id;
+		}
+
+		public int getColor_id() {
+			return color_id;
+		}
+
+		public void setColor_id(int color_id) {
+			this.color_id = color_id;
+		}
+
+		public int getSize_id() {
+			return size_id;
+		}
+
+		public void setSize_id(int size_id) {
+			this.size_id = size_id;
+		}
+
+		public MultipartFile getImage() {
+			return image;
+		}
+		
+		public void setImage(MultipartFile image) {
+			this.image = image;
 		}
 }
