@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.ai.persistant.dto.SizeDto;
 
 
-@Service("sizeDao")
 public class SizeDao {
 	public static Connection con=null;
 	
@@ -23,7 +22,11 @@ public class SizeDao {
 	//insert
 	public int insertData(SizeDto size) {
 		int result =0;
+<<<<<<< HEAD
 		String sql = "INSERT INTO size (size_id,value) VALUES (?,?)";
+=======
+		String sql = "INSERT INTO size(id,value VALUES (?,?)";
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -41,7 +44,11 @@ public class SizeDao {
 	//update
 	public int updateData(SizeDto size) {
 		int result =0;
+<<<<<<< HEAD
 		String sql = "UPDATE size SET value=? WHERE size_id=?";
+=======
+		String sql = "UPDATE size SET value=? WHERE id=?";
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);			
@@ -57,7 +64,11 @@ public class SizeDao {
 	//delete
 	public int deleteData(SizeDto size) {
 		int result=0;
+<<<<<<< HEAD
 		String sql = "DELETE FROM size where size_id=?";		
+=======
+		String sql = "DELETE FROM size where id=?";		
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -71,7 +82,11 @@ public class SizeDao {
 	//select single book
 	public SizeDto selectOne(SizeDto size) {
 		SizeDto res = new SizeDto();
+<<<<<<< HEAD
 		String sql = "SELECT * from size where size_id=?";
+=======
+		String sql = "SELECT * from size where id=?";
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
 		
 		PreparedStatement ps;
 		try {

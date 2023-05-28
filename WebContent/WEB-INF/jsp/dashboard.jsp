@@ -54,7 +54,12 @@
                             <h3 class="card-title">Ecommerce Management</h3>
              			 </div>                  			 
              			 
+<<<<<<< HEAD
                          <div class="card-body">
+=======
+
+                          <div class="card-body">
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
                               <table id="example1" class="table table-bordered table-striped">
                               <thead>
                               <tr>
@@ -91,10 +96,18 @@
 	                           </c:forEach>
                             		                   
 
+<<<<<<< HEAD
                               </tbody>                  
         			                                         
 
                             </table>
+=======
+                              </tbody>
+                              
+
+             			 
+            </table>
+>>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
                           </div>
                     </div>
                     <!-- /.card -->
