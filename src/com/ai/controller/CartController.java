@@ -47,7 +47,7 @@ public class CartController {
 	
 	 @PostMapping("/add")
 	    public String addItemToCart(@RequestParam("productId") int productId, @RequestParam("quantity") int quantity) {
-	        Product product = ProductService.getProductById(productId);
+	        Product product = ProductService.get(productId);
 	        cartService.addItem(product, quantity);
 	        return "redirect:/cart/";
 	    }

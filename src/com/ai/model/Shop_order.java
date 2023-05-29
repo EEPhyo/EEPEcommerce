@@ -1,6 +1,8 @@
 package com.ai.model;
 
-public class Shop_order {
+import java.io.Serializable;
+
+public class Shop_order implements Serializable  {
     private int id;
     private String order_date;
     private double order_total;

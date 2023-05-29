@@ -1,5 +1,6 @@
 package com.ai.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,9 @@ public class ProductService {
 		}
 
 
-		public Product getProductById(String productId) {
-			// TODO Auto-generated method stub
-			return null;
+		public ArrayList<ProductDto> getProductById(String productId) {
+			
+			return productDao.selectAll();
 		}
 
 

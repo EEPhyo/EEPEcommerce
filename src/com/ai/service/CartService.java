@@ -44,7 +44,7 @@ public class CartService {
 	}
 
 		private CartItem findItemById(int itemId) {
-	    	for (CartItem item : cart.) {
+	    	for (CartItem item : cartItems) {
 	            if (item.getId() == itemId) {
 	                return item;
 	            }

@@ -40,7 +40,7 @@ public class Shopping_cart implements Serializable  {
 	
     private Product product;
     private int quantity;
-    private List<CartItem> cartItems;
+    private List<CartItem> cartItems;	
     
     public Shopping_cart() {
     	this.cartItems = new ArrayList<>();
