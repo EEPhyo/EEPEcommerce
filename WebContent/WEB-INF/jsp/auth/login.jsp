@@ -9,6 +9,18 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
  <style>
+
+        body{
+	      background-image: url('D:\EEPEcommerce\WebContent\WEB-INF\resource\frontedn_ui\images\img\ecommerce.jpg');	      
+	      background-size: cover;
+	      height: 100%;
+	      margin: 0;
+	      padding: 0;
+	      display: flex;
+	      justify-content: center;
+	      align-items: center;
+    	}
+        
         .login{
             width: 30%;
             padding: 20px;

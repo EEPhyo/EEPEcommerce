@@ -18,77 +18,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 	
 	<!-- StyleSheet -->
-<<<<<<< HEAD
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/bootstrap.css">
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/magnific-popup.min.css">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/font-awesome.css">
-	<!-- Fancybox -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/jquery.fancybox.min.css">
-	<!-- Themify Icons -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/themify-icons.css">
-	<!-- Nice Select CSS -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/niceselect.css">
-	<!-- Animate CSS -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/animate.css">
-	<!-- Flex Slider CSS -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/flex-slider.min.css">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/owl-carousel.css">
-	<!-- Slicknav -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/slicknav.min.css">
-=======
-	<!-- Bootstrap --> 
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/bootstrap.css">
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/magnific-popup.min.css">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/font-awesome.css">
-	<!-- Fancybox -->
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/jquery.fancybox.min.css">
-	<!-- Themify Icons -->
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/themify-icons.css">
-	<!-- Nice Select CSS -->
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/niceselect.css">
-	<!-- Animate CSS -->
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/animate.css">
-	<!-- Flex Slider CSS -->
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/flex-slider.min.css">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/owl-carousel.css">
-	<!-- Slicknav -->
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/slicknav.min.css">
->>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
+
+	<jsp:include page="css.jsp"></jsp:include>	
+	
 
 	
 	
-	<!-- Eshop StyleSheet -->
-<<<<<<< HEAD
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/reset.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/style.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/frontedn_ui/css/responsive.css">
-=======
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/reset.css">
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/style.css">
-	<link rel="stylesheet" href="${Pagecontext. Request. contextpath }/../../../resource/frontedn_ui/css/responsive.css">
->>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
+
 	
 	
 </head>
 <body class="js">
-	
-	<!-- Preloader -->
-	<div class="preloader">
-		<div class="preloader-inner">
-			<div class="preloader-icon">
-				<span></span>
-				<span></span>
-			</div>
-		</div>
-	</div>
-	<!-- End Preloader -->
 	
 	
 	<jsp:include page="./header.jsp"></jsp:include>

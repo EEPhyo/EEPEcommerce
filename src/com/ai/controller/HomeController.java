@@ -21,17 +21,12 @@ public class HomeController {
 	@Autowired
 	private UserDao dao;
 	
-	@Autowired
-	private RoleDao role;
-	
+		
 	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public String displayView(ModelMap m) {
-		ArrayList<UserDto> list = dao.selectAll();
-		m.addAttribute("list",list);
-		
-		ArrayList<RoleDto> list1=role.selectRole();
-		m.addAttribute("role",list1);
-		
+		ArrayList<UserDto> list = dao.User_List();
+		m.addAttribute("lists",list);	
+				
 		return "dashboard";
 	}
 }

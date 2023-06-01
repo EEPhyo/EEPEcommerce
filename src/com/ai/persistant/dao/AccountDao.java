@@ -52,7 +52,7 @@ public class AccountDao {
 	        
 	        while (rs.next()) {
 	            UserDto res = new UserDto();
-	            res.setId(rs.getInt("id"));
+	            res.setUid(rs.getInt("uid"));
 	            res.setName(rs.getString("name"));
 	            res.setEmail(rs.getString("email"));
 	            res.setPassword(rs.getString("password"));
@@ -90,7 +90,7 @@ public class AccountDao {
 	        
 	        while (rs.next()) {
 	            UserDto res = new UserDto();
-	            res.setId(rs.getInt("id"));
+	            res.setUid(rs.getInt("id"));
 	            res.setName(rs.getString("name"));
 	            res.setEmail(rs.getString("email"));
 	            res.setPassword(rs.getString("password"));

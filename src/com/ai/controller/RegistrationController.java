@@ -25,6 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import com.ai.model.User;
 import com.ai.persistant.dao.RoleDao;
 import com.ai.persistant.dao.UserDao;
+import com.ai.persistant.dto.CategoryDto;
 import com.ai.persistant.dto.RoleDto;
 import com.ai.persistant.dto.UserDto;
 
@@ -33,13 +34,17 @@ import com.ai.persistant.dto.UserDto;
 public class RegistrationController {
 	@Autowired	 
 	private UserDao dao;
+	
+	@Autowired
+	private RoleDao roledao;
 		 
 	@Autowired
     private PasswordEncoder passwordEncoder;
 	
 	@RequestMapping(value="/register",method=RequestMethod.GET)
 	public ModelAndView showRegister(ModelMap model) {
-		 
+		ArrayList<RoleDto> role= roledao.selectRole();
+		model.addAttribute("roles",role);	
 		 ModelAndView m = new ModelAndView("/auth/register");
 		 m.addObject("bean",new User());		
 		
@@ -77,7 +82,7 @@ public class RegistrationController {
 		    boolean error = false;
 		    UserDao dao = new UserDao();
 		    
-		    ArrayList<UserDto> list = dao.selectAll();
+		    ArrayList<UserDto> list = dao.User_List();
 		    Iterator<UserDto> itr=list.iterator();
 		    
 		    while(itr.hasNext()) {

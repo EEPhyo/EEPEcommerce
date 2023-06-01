@@ -3,17 +3,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.web.multipart.MultipartFile;
+
 
 @Entity
 @Table(name="product")
@@ -24,42 +20,28 @@ public class ProductDto implements Serializable{
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private int id;
 		
-		@Column(name="name")
-		@NotEmpty
 		private String name;
 		
-		@Column(name="description")
-		@NotEmpty
 		private String description;
 		
-		@Column(name="image")
-//		@NotEmpty
 		private String image;
 		
-		@Column(name="quantity")
 		private int quantity;
 		
 	
-		@Column(name="price")
 		private double price;
 
-		@Column(name="is_stock")
-		private boolean is_stock;
+		private int is_stock;
 		
-		@Column(name="is_deleted")
 		private boolean is_deleted;
 		
-		@Column(name="category_id")
 		private int category_id;
 		
-		@Column(name="color_id")
 		private int color_id;
 		
-		@Column(name="size_id")
 		private int size_id;
 		
 		@Transient
-		@Column(name = "category_name")
 		private String category_name;
 		
 		
@@ -70,8 +52,8 @@ public class ProductDto implements Serializable{
 		 private String color_name;
 		 
 		 
-		 @Transient
-		 private String base64Image;
+//		 @Transient
+//		 private String base64Image;
 
 		 
 		public ProductDto() {}
@@ -106,10 +88,10 @@ public class ProductDto implements Serializable{
 		public void setIs_deleted(boolean is_deleted) {
 			this.is_deleted = is_deleted;
 		}
-		public boolean getIs_stock() {
+		public int getIs_stock() {
 			return is_stock;
 		}
-		public void setIs_stock(boolean is_stock) {
+		public void setIs_stock(int is_stock) {
 			this.is_stock = is_stock;
 		}
 		public double getPrice() {
@@ -189,13 +171,13 @@ public class ProductDto implements Serializable{
 	        this.color_name = color_name;
 	    }
 		    
-		 public String getBase64Image() {
-		        return base64Image;
-		  }
-
-		  public void setBase64Image(String base64Image) {
-		        this.base64Image = base64Image;
-		  }
-	    
+//		 public String getBase64Image() {
+//		        return base64Image;
+//		  }
+//
+//		  public void setBase64Image(String base64Image) {
+//		        this.base64Image = base64Image;
+//		  }
+//	    
 	    
 }

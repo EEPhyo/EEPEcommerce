@@ -37,7 +37,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="<a href=<c:url value='/category' />">Categories List</a></li>
+                                <li class="breadcrumb-item"><a href="<c:url value='/category' />">Categories List</a></li>
                                 <li class="breadcrumb-item active">create</li>
                             </ol>
                         </div>
@@ -65,11 +65,13 @@
                                   
                                     <div class="card-body">
         
-                                        <p class="danger-color">All star(*) fields are required</p>
+                                          <p style="color:red">All star(*) fields are required</p>
                                         
                                         <div class="form-group">
-                                            <form:label for="name" path="name">Title <span class="danger-color">*</span></form:label>
+                                            <form:label for="name" path="name">Title <span style="color:red;">*</span></form:label>
                                             <form:input type="text" class="form-control" path="name" id="name" name="name" />
+                                        	<form:errors path="name" style="color:red;" />
+	                           		
                                         </div>
                                     </div>
                                     <!-- /.card-body -->

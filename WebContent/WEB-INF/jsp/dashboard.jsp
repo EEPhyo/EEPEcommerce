@@ -2,11 +2,13 @@
     pageEncoding="ISO-8859-1"%>
     
    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+   
     
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Ecommerce Management</title>	
   
 
@@ -17,7 +19,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/daterangepicker/daterangepicker.css">
+	
 </head>
 	
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -52,63 +54,40 @@
                     <div class="card">
                         <div class="card-header" style="display: inline;">
                             <h3 class="card-title">Ecommerce Management</h3>
-             			 </div>                  			 
-             			 
-<<<<<<< HEAD
-                         <div class="card-body">
-=======
-
+             			 </div>     			 
+             			                      
                           <div class="card-body">
->>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
-                              <table id="example1" class="table table-bordered table-striped">
-                              <thead>
-                              <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone No</th>
-                                <th>Address</th>
-                                <th>Role</th>
-                                <th>created_date</th>
-                                <th>created_user</th>
-                                <th>Enabled</th>
-                                <th>Locked</th>
-                              </tr>
-                              </thead>
-                              <tbody>                                                         
-	                           <c:forEach items="${list}" var="user">
-	                           		<tr>
-	                           			<td>${user.name }</td>
-	                           			<td>${user.email }</td>
-	                           			<td>${user.phone_number }</td>
-	                           			<td>${user.address }</td>
-	                           				                           				
-	                           			<td>-</td>                         				
-	                           				
-	                           			
-	                           			<td>-</td>
-	                           			<td>${user.created_date }</td>
-	                           			<td>-</td>
-	                           			<td>-</td>
-	                           			<td>-</td>
-	                           		
-	                           		</tr>
-	                           
-	                           </c:forEach>
-                            		                   
-
-<<<<<<< HEAD
-                              </tbody>                  
-        			                                         
-
-                            </table>
-=======
-                              </tbody>
-                              
-
-             			 
-            </table>
->>>>>>> a1a4807582c6c14134063a6f3e5e2d36bab8c1c1
-                          </div>
+									<table id="example1" class="table table-bordered table-striped">
+										  <thead class="text-center">
+										    <tr>
+										      <th>Name</th>
+										      <th>Email</th>
+										      <th>Phone No</th>
+										      <th>Address</th>
+										      <th>Role</th>
+										      <th>created_date</th>
+										      <th>created_user</th>
+										      <th>Enabled</th>
+										      <th>Locked</th>
+										    </tr>
+										  </thead>
+										  <tbody class="text-center">
+										    <c:forEach items="${lists}" var="user">     
+										      <tr>
+										        <td class="align-middle">${user.name}</td>
+										        <td class="align-middle">${user.email}</td>
+										        <td class="align-middle">${user.phone_number}</td>
+										        <td class="align-middle">${user.address}</td>
+										         <td class="align-middle">${user.role_name}</td>
+										        <td class="align-middle">${user.created_date}</td>
+										        <td class="align-middle">${user.role_name}</td>
+										        <td class="align-middle">-</td>
+										        <td class="align-middle">-</td>
+										      </tr>
+										    </c:forEach>
+										  </tbody>
+								</table>			                                       
+                      	  </div>
                     </div>
                     <!-- /.card -->
                 </div>
@@ -152,20 +131,9 @@
 <!-- AdminLTE for demo purposes -->
 
 <!-- Page specific script -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#example1').DataTable({
-            paging: true,
-            lengthChange: false,
-            searching: false,
-            ordering: true,
-            info: true,
-            autoWidth: false,
-            responsive: true
-        });
-    });
-</script>
+<jsp:include page="./layouts/script-index.jsp"></jsp:include>		
+<!-- Page specific script -->
+
 
 </body>
 </html>

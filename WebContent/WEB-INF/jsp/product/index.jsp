@@ -18,16 +18,17 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/daterangepicker/daterangepicker.css">
-
-<style>
-	.image{
-		width:100px;
-		border-radius:7px;
-		vertical-align: middle;
-    	border-style: none;
-	}
-
-</style>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+		<style>
+			.image{
+				width:100%;
+				height:1.2%;
+				border-radius:7px;
+				vertical-align: middle;
+		    	border-style: none;
+			}
+		
+		</style>
 
 </head>
 
@@ -35,6 +36,9 @@
 		
 		<jsp:include page="../layouts/header.jsp"></jsp:include>
         <jsp:include page="../layouts/sidebar.jsp"></jsp:include>
+        
+               
+        
 	<div class="content-wrapper">
     
     <!-- Main content -->
@@ -50,10 +54,10 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
-                                <thead>
+                                <thead class="text-center">
                                     <tr class="align-middle">
                                         <th>Name</th>
-                                        <th style="min-width: 100px !important;">Image</th>
+                                        <th style="min-width: 120px !important;">Image</th>
                                         <th>Category</th>
                                         <th>Color</th>
                                          <th>Size</th>
@@ -66,21 +70,23 @@
                                     </tr>
                                 </thead>
                                 
-                                <tbody>
+                                <tbody class="text-center">
 									 <c:forEach items="${products}" var="product">                                   
                                  	  <tr>                                                        
 	                                       <td class="align-middle">${product.name}</td>         
 	                                      <td class="align-middle" style="max-width: 100px;">
 											    <div class="text-center">
 											        <c:choose>
-												        <c:when test="${not empty product.base64Image}">
-												            <img class="image" src="data:image;base64,${product.base64Image}" alt="Product Image">
+												        <c:when test="${not empty product.image}">
+												           <img class="image" src="${pageContext.request.contextPath}/image/${product.image}" alt="Product Image">
+
 												        </c:when>
 												        <c:otherwise>
-												            <img class="image" src="${pageContext.request.contextPath}/resource/image/thumbnail-default.jpg" alt="Default Thumbnail">
+												            <img class="image" src="${pageContext.request.contextPath}/image/thumbnail-default.jpg" alt="Default Thumbnail">
 												        </c:otherwise>
-    												</c:choose>										
-    							 				</div>
+    												</c:choose>							
+    											
+												</div>
 											</td>
 
 										
@@ -94,12 +100,15 @@
                                        
                                         
                                         <td class="align-middle">    
-                                             <a href="/ClothingProj/editProduct/${product.id }"
+                                             <a href="/ClothingProj/editProduct/${product.id}"
                                                     class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>                                  
                                           
                                             <a href="/ClothingProj/deleteProduct/${product.id}"
-                                             class="btn btn-danger btn-sm delete_btn"><i class="fas fa-trash"></i></a>                                
-                                                                                   
+											    class="btn btn-danger btn-sm delete_btn"
+											    onclick="event.preventDefault(); deleteProductConfirmation(this);">
+											    <i class="fas fa-trash"></i>
+											</a>                          
+											                                                                                   
                                                                                   
                                        </td>
                                         </tr> 
@@ -144,3 +153,24 @@
 
 <jsp:include page="../layouts/script-index.jsp"></jsp:include>		
 <!-- Page specific script -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.js"></script>
+
+<script>
+function deleteProductConfirmation(element) {
+    var url = element.getAttribute('href');
+    
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to recover this record!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url;
+        }
+    });
+}
+</script>

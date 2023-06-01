@@ -11,11 +11,12 @@
     
    <jsp:include page="../layouts/top-html-start-head-tag.jsp"></jsp:include>
   
-	
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/plugins/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -37,7 +38,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
-                                <thead>
+                                <thead class="text-center">
                                     <tr>
                                         <th>No.</th>
                                         <th>Title</th>
@@ -46,21 +47,22 @@
                                     </tr>
                                 </thead>
                                 
-                                <tbody>
+                                <tbody class="text-center">
 									 <c:forEach items="${categories}" var="category">                                   
                                  	  <tr>                                                        
-                                       <td>${category.category_id}</td>         
-                                       <td>${category.name }</td>
-                                       <td>${category.created_date }
-                                        <td>
+                                       <td class="align-middle">${category.category_id}</td>         
+                                       <td class="align-middle">${category.name }</td>
+                                       <td class="align-middle">${category.created_date }
+                                        <td class="align-middle">
                                                                                         
                                           <a href="/ClothingProj//setupdateCategory/${category.category_id}"
-   											class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>
-
-                                            <a href="/ClothingProj/deleteCategory/${category.category_id}"
-                                             class="btn btn-danger btn-sm delete_btn"><i class="fas fa-trash"></i></a>                                  
+   											class="btn btn-info btn-sm"><i class="fas fa-edit"></i></a>                                                             
                                                                                    
-                                                                                  
+                                             <a href="/ClothingProj/deleteCategory/${category.category_id}"
+											    class="btn btn-danger btn-sm delete_btn"
+											    onclick="event.preventDefault(); deleteProductConfirmation(this);">
+											    <i class="fas fa-trash"></i>
+											</a>                                           
                                             </td>
                                         </tr> 
                                         </c:forEach>
@@ -101,24 +103,26 @@
 <script src="${pageContext.request.contextPath}/resource/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${pageContext.request.contextPath}/resource/dist/js/demo.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.js"></script>
 		
 <!-- Page specific script -->
+<jsp:include page="../layouts/script-index.jsp"></jsp:include>
 <script>
-$(function() {
-    $("#table1").DataTable({
-        "responsive": true,
-        "lengthChange": false,
-        "autoWidth": false,
-        "order": [
-            [5, 'desc']
-        ]
-        
-    }).buttons().container().appendTo('#table1_wrapper .col-md-6:eq(0)');
-});
-
-$(".delete-form").on("submit", function() {
-    return confirm("Are you sure to delete?");
-});
-		
+function deleteProductConfirmation(element) {
+    var url = element.getAttribute('href');
+    
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to recover this record!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url;
+        }
+    });
+}
 </script>

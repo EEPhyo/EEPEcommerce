@@ -30,3 +30,15 @@
 		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/easing.js"></script>
 		<!-- Active JS -->
 		<script src="${pageContext.request.contextPath}/resource/frontedn_ui/js/active.js"></script>
+		
+		 <!-- Js Plugins -->
+        
+        
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/product/js/jquery.nice-select.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/product/js/jquery.nicescroll.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/product/js/jquery.magnific-popup.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/product/js/jquery.countdown.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/product/js/jquery.slicknav.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/product/js/mixitup.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/product/js/owl.carousel.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resource/frontedn_ui/product/js/main.js"></script>

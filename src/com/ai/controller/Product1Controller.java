@@ -1,5 +1,6 @@
 package com.ai.controller;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,17 +15,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -58,29 +61,8 @@ public class Product1Controller {
 	
 	@RequestMapping(value = "/productList", method = RequestMethod.GET)
 	public String displayView(ModelMap m) throws IOException {
-	    ArrayList<ProductDto> list = dao.selectAll();
-
-	    for (ProductDto product : list) {
-	        String imageData = product.getImage();
-	        String base64Image = "";
-
-	        if (imageData != null && !imageData.isEmpty()) {
-	        	
-	        	try {
-	        		byte[] imageBytes = Files.readAllBytes(Paths.get(imageData));
-					base64Image = Base64.getEncoder().encodeToString(imageBytes);
-	        		
-	        	}catch(IOException e) {
-	        		System.out.println("Error reading image file: "+e.getMessage());
-	        	}
-	        	
-	        }
-	        
-	        product.setBase64Image(base64Image);				
-
-	       }
-    
-
+	   
+		ArrayList<ProductDto> list = dao.selectAll();
 	    m.addAttribute("products", list);
 	    return "/product/index";
 	}
@@ -100,130 +82,210 @@ public class Product1Controller {
 	} 	
     
     @RequestMapping(value="/createProduct" ,method=RequestMethod.POST)
-    public String createProduct(@ModelAttribute("bean") @Validated Product product,BindingResult result,HttpServletRequest req,ModelMap model,RedirectAttributes ra) {
+    public String createProduct(@ModelAttribute("bean") @Validated Product product,BindingResult result,HttpServletRequest req,ModelMap model,RedirectAttributes ra,HttpSession session) {
 	
    	 if (result.hasErrors()) {
- 			model.addAttribute("error", "Field can not be blank");
- 			return "redirect:/addProduct";
- 		} else {
+   		ArrayList<CategoryDto> categories= categorydao.selectAll();
+	    	ArrayList<ColorDto> colors= colordao.selectAll();
+	    	ArrayList<SizeDto> sizes = sizedao.selectAll();
+			model.addAttribute("categories",categories);	
+			model.addAttribute("colors",  colors);		
+			model.addAttribute("sizes", sizes);
+			ra.addFlashAttribute("error", "Field cannot blank!!");	
+ 			return "product/create";
+   	 }
     	 
-			MultipartFile file = product.getImage();
-			String imageFile = file.getOriginalFilename();
-			String path = req.getServletContext().getRealPath("/") + "WEB-INF" + File.separator + "resource" + File.separator + "image" + File.separator + imageFile;
-
-			try {
-				FileOutputStream fos = new FileOutputStream(path);
-				InputStream is = file.getInputStream();
-				byte[] data = new byte[is.available()];
-				
-				is.read(data);
-				fos.write(data);
-				fos.close();
+   	try {	
+   		
+			MultipartFile image = product.getImage();
+			if (image == null || image.isEmpty()) {
+				ArrayList<CategoryDto> categories= categorydao.selectAll();
+				ArrayList<ColorDto> colors= colordao.selectAll();
+		    	ArrayList<SizeDto> sizes = sizedao.selectAll();
+				model.addAttribute("categories",categories);	
+				model.addAttribute("colors",  colors);		
+				model.addAttribute("sizes", sizes);
+				model.addAttribute("error", "Image Required");
+				return "product/create";
+			}
+			byte[] bytes = image.getBytes();
 			
-				
-				ProductDto dto=new ProductDto();
-				dto.getId();
-				dto.setName(product.getName());
-				dto.setCategory_id(product.getCategory_id());
-				dto.setColor_id(product.getColor_id());
-				dto.setSize_id(product.getSize_id());
-				dto.setImage(file.getOriginalFilename());
-				dto.setDescription(product.getDescription());				
-				dto.setQuantity(product.getQuantity());
-				dto.setPrice(product.getPrice());
-				dto.setIs_stock(product.getIs_stock());	
-				
-//				dto.setIs_deleted(product.getIs_deleted());
-				int rs = dao.insertData(dto);
-			
-			if(rs == 0) {
-					ra.addFlashAttribute("error","Your insert fail");
-					return "redirect:/addProduct";
-				}
-			} catch (Exception e) {
-			System.out.println("Image Upload error" + e);
+			System.out.print(bytes.length);
+			if (bytes.length < 1) {
+				ArrayList<CategoryDto> categories= categorydao.selectAll();
+				ArrayList<ColorDto> colors= colordao.selectAll();
+		    	ArrayList<SizeDto> sizes = sizedao.selectAll();
+				model.addAttribute("categories",categories);	
+				model.addAttribute("colors",  colors);		
+				model.addAttribute("sizes", sizes);
+				model.addAttribute("error", "Image Required");
+				return "product/create";
 			}
 			
-	 	 
-   	 return "redirect:/productList";
-   	 
-    }     
-  }  
-     
-     
-    @RequestMapping(value="/editProduct/{id}",method=RequestMethod.GET)
-  	public ModelAndView editProduct() {
-  		return new ModelAndView("/product/update","bean",new Product());		
-  		
-  	} 	
-    
-    @RequestMapping(value="/updateProduct" ,method=RequestMethod.POST)
-    public String editProduct(@ModelAttribute("bean") @Validated Product product,BindingResult result,HttpServletRequest req,ModelMap model,RedirectAttributes ra) {
-		
-   	 if (result.hasErrors()) {
-			model.addAttribute("error", "Field can not be blank");
-			return "redirect:/editProduct";
-		} else {
-   	 
-			MultipartFile file = product.getImage();
-			 String imageFile =file.getOriginalFilename();
-			 String path = req.getServletContext().getRealPath("/") + "WEB-INF" + File.separator + "resource" + File.separator + "image" + File.separator + imageFile;
+						 
+	
+			String uploadPath =session.getServletContext().getRealPath("/") + "WEB-INF" + File.separator + "image"
+					+ File.separator + product.getImage().getOriginalFilename();
 
-			try {
-				FileOutputStream fos = new FileOutputStream(path);
-				InputStream is = file.getInputStream();
-				byte[] data = new byte[is.available()];
-				is.read(data);
-				fos.write(data);
-				fos.close();
-				
+			String imagePath = "D:\\EEPEcommerce\\WebContent\\WEB-INF\\image";		
+			
+			File imageFile = new File(imagePath, image.getOriginalFilename());
+			image.transferTo(imageFile);
 
-				
-				ProductDto dto=new ProductDto();
-				dto.setId(product.getId());
-				dto.setName(product.getName());
-				dto.setDescription(product.getDescription());
-				dto.setImage(file.getOriginalFilename());
-				dto.setQuantity(product.getQuantity());
-				dto.setPrice(product.getPrice());
-				dto.setIs_stock(product.getIs_stock());
-				dto.setCategory_id(product.getCategory_id());
-				dto.setColor_id(product.getColor_id());
-				dto.setSize_id(product.getSize_id());
-//				dto.setIs_deleted(product.getIs_deleted());
-				int rs = dao.insertData(dto);
-				
-				if(rs == 0) {
-					ra.addFlashAttribute("error","Your insert fail");
-					return "redirect:/editProduct";
-				}	
-				
-			} catch (Exception e) {
-				System.out.println("Image Upload error" + e);
-			}
 			
-			
-   	 
-			 return "redirect:/productList";
+			BufferedOutputStream bout = new BufferedOutputStream(new FileOutputStream(uploadPath ));
+			bout.write(bytes);
+			bout.close();
+		} catch (IOException e) {
+			System.out.print(e);
 		}
+   		String imageData = product.getImage().getOriginalFilename();
+			ProductDto dto=new ProductDto();
+			dto.setId(product.getId());
+			dto.setName(product.getName());
+			dto.setDescription(product.getDescription());
+			dto.setImage(imageData);
+			dto.setQuantity(product.getQuantity());
+			dto.setPrice(product.getPrice());
+			dto.setIs_stock(product.getIs_stock());
+			dto.setCategory_id(product.getCategory_id());
+			dto.setColor_id(product.getColor_id());
+			dto.setSize_id(product.getSize_id());
+			int rs = dao.insertData(dto);			
+
+			if(rs == 0) {
+				ArrayList<CategoryDto> categories= categorydao.selectAll();
+				ArrayList<ColorDto> colors= colordao.selectAll();
+		    	ArrayList<SizeDto> sizes = sizedao.selectAll();
+				model.addAttribute("categories",categories);	
+				model.addAttribute("colors",  colors);		
+				model.addAttribute("sizes", sizes);
+				ra.addFlashAttribute("error","Your Insert fail");
+				return "product/create";
+			}	
+			return "redirect:/productList";
    	 
+    }         
+
+	
+
+	@RequestMapping(value="/editProduct/{id}", method=RequestMethod.GET)
+    public ModelAndView editProduct(@PathVariable int id, ModelMap m) {
+        ProductDto dto = new ProductDto();
+        dto.setId(id);
+        
+        ArrayList<CategoryDto> categories = categorydao.selectAll();
+        ArrayList<ColorDto> colors = colordao.selectAll();
+        ArrayList<SizeDto> sizes = sizedao.selectAll();
+        m.addAttribute("categories", categories);
+        m.addAttribute("colors", colors);
+        m.addAttribute("sizes", sizes);
+        ProductDto product = dao.selectOne(dto);        
+        ModelAndView modelAndView = new ModelAndView("/product/update");
+        modelAndView.addObject("bean",product); 
+        return modelAndView;
+        
     }
+
+    @RequestMapping(value="/updateProduct", method=RequestMethod.POST)
+    public String updateProduct(@ModelAttribute("bean") @Validated Product product, BindingResult result,
+                                HttpServletRequest req, ModelMap model, RedirectAttributes ra,
+                                HttpSession session) {
+
+        if (result.hasErrors()) {
+        	ArrayList<CategoryDto> categories= categorydao.selectAll();
+			ArrayList<ColorDto> colors= colordao.selectAll();
+	    	ArrayList<SizeDto> sizes = sizedao.selectAll();
+			model.addAttribute("categories",categories);	
+			model.addAttribute("colors",  colors);		
+			model.addAttribute("sizes", sizes);
+			ra.addFlashAttribute("error","Your Insert fail");
+            model.addAttribute("error", "Field can not be blank");
+            return "product/update";
+        }
+
+      try {
+            MultipartFile image = product.getImage();
+            if (image != null && !image.isEmpty()) {
+                byte[] bytes = image.getBytes();
+                System.out.print(bytes.length);
+                
+                if (bytes.length < 1) {
+                	ArrayList<CategoryDto> categories= categorydao.selectAll();
+    				ArrayList<ColorDto> colors= colordao.selectAll();
+    		    	ArrayList<SizeDto> sizes = sizedao.selectAll();
+    				model.addAttribute("categories",categories);	
+    				model.addAttribute("colors",  colors);		
+    				model.addAttribute("sizes", sizes);
+    				ra.addFlashAttribute("error","Your Insert fail");
+                    model.addAttribute("error", "Image Required");
+                    return "product/update";
+                }
+
+                String uploadPath = session.getServletContext().getRealPath("/") + "WEB-INF" +
+                                    File.separator + "image" + File.separator + image.getOriginalFilename();
+
+                String imagePath = "D:\\EEPEcommerce\\WebContent\\WEB-INF\\image";
+                
+                File imageFile = new File(imagePath, image.getOriginalFilename());
+                image.transferTo(imageFile);
+
+                BufferedOutputStream bout = new BufferedOutputStream(new FileOutputStream(uploadPath));
+                bout.write(bytes);
+                bout.close();
+
+                              
+            }
+        } catch (IOException e) {
+            System.out.print(e);
+        }
+	      String imageData = product.getImage().getOriginalFilename();
+	    
+        ProductDto dto = new ProductDto();
+        dto.setId(product.getId());
+        dto.setName(product.getName());
+        dto.setCategory_id(product.getCategory_id());
+        dto.setColor_id(product.getColor_id());
+        dto.setSize_id(product.getSize_id());
+        dto.setDescription(product.getDescription());
+        dto.setImage(imageData);
+        dto.setQuantity(product.getQuantity());
+        dto.setPrice(product.getPrice());
+        dto.setIs_stock(product.getIs_stock());
+        int rs = dao.updateData(dto);
+
+        if (rs == 0) {
+        	ArrayList<CategoryDto> categories= categorydao.selectAll();
+			ArrayList<ColorDto> colors= colordao.selectAll();
+	    	ArrayList<SizeDto> sizes = sizedao.selectAll();
+			model.addAttribute("categories",categories);	
+			model.addAttribute("colors",  colors);		
+			model.addAttribute("sizes", sizes);
+			ra.addFlashAttribute("error","Your Insert fail");
+            ra.addAttribute("error", "Your update failed");
+            return "product/update";
+        }
+
+        return "redirect:/productList";
+    }
+
     
     @RequestMapping(value="/deleteProduct/{id}", method=RequestMethod.GET) 
- 	public String deletebook(@PathVariable int id,ModelMap model){	
-    	 ProductDto dto = new ProductDto();
-    	 ProductDao dao = new ProductDao();
+ 	public String deleteProduct(@PathVariable int id,ModelMap model){	
+    	 ProductDto dto = new ProductDto();    	 
  			dto.setId(id);
  			int res = dao.deleteData(dto);
  		
  		if(res == 0) {
  			model.addAttribute("error","Delete Failed");
- 			return "/product/index";
+ 			return "redirect:/productList";
  		}	
  		
  		 return "redirect:/productList";
  	
  	}
+    
+   
     
  
 }

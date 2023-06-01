@@ -1,64 +1,69 @@
 package com.ai.model;
-import javax.validation.constraints.NotNull;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.ai.form.validator.ImageFileExtension;
+
+
+
 
 @Entity
 @Table(name="product")
-
 public class Product implements Serializable{
 
-		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
-		private int id;
-		
-		@Column(name="name")
-		@NotEmpty
-		private String name;
-		
-		@Column(name="description")
-		@NotEmpty
-		private String description;
-		
-		@Column(name="image")
-	
-//		@Size(max = 5 * 1024 * 1024, message = "Maximum file size exceeded")
-		private MultipartFile image;
-		
-		
-		@Column(name="quantity")
-		private int quantity;
-		
-	
-		@Column(name="price")
-		private double price;
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
-		@Column(name="is_stock")
-		private boolean is_stock;
-		
-		@Column(name="is_deleted")
-		private boolean is_deleted;
-		
-		@Column(name="category_id")
-		private int category_id;
-		
-		@Column(name="color_id")
-		private int color_id;
-		
-		@Column(name="size_id")
-		private int size_id;
+    @Column(name = "name")
+    @NotBlank(message = "Product name is required")
+    private String name;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "image")
+    @NotNull(message = "Image is required")
+//    @Size(max = 5 * 1024 * 1024, message = "File size must not exceed 5MB")
+//    @ImageFileExtension(message = "Only JPG, JPEG, and PNG file types are allowed")
+    private MultipartFile image;
+    
+    @Column(name = "quantity")
+    @NotNull(message = "Product Quantity is required")
+    private Integer quantity;
+
+    @Column(name = "price")
+    @NotNull(message = "Product Price is required")
+    @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than zero")
+    private Double price;
+
+    @Column(name = "is_stock")
+    @NotNull(message = "Stock status is required")
+    private Integer is_stock;
+
+    @Column(name = "category_id")
+    @NotNull(message = "Product Category is required")
+    private Integer category_id;
+
+    @Column(name = "color_id")
+    @NotNull(message = "Product Color is required")
+    private int color_id;
+
+    @Column(name = "size_id")
+    @NotNull(message = "Product Size is required")
+    private Integer size_id;
 		
 		public Product() {}
 		
@@ -86,16 +91,16 @@ public class Product implements Serializable{
 			this.description = description;
 		}
 
-		public boolean getIs_deleted() {
-			return is_deleted;
-		}
-		public void setIs_deleted(boolean is_deleted) {
-			this.is_deleted = is_deleted;
-		}
-		public boolean getIs_stock() {
+//		public boolean getIs_deleted() {
+//			return is_deleted;
+//		}
+//		public void setIs_deleted(boolean is_deleted) {
+//			this.is_deleted = is_deleted;
+//		}
+		public int getIs_stock() {
 			return is_stock;
 		}
-		public void setIs_stock(boolean is_stock) {
+		public void setIs_stock(int is_stock) {
 			this.is_stock = is_stock;
 		}
 		public double getPrice() {
@@ -143,4 +148,10 @@ public class Product implements Serializable{
 		public void setImage(MultipartFile image) {
 			this.image = image;
 		}
+
+		public void setImage(String imageData) {
+			// TODO Auto-generated method stub
+			
+		}
+		
 }
