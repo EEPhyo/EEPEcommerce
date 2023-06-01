@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.ai.persistant.dto.CategoryDto;
 
+
 @Service("categoryDao")
 public class CategoryDao {
     public static Connection con=null;
@@ -39,24 +40,24 @@ public class CategoryDao {
 	}
 	
 	//update
-	public int updateData(CategoryDto category) {
-		int result =0;
-		String sql = "UPDATE category SET name=?,created_date=? WHERE category_id=?";
-		
-		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			
-			ps.setString(1,category.getName());
-			ps.setString(2, category.getCreated_date());
-			ps.setInt(3, category.getCategory_id());
-			result=ps.executeUpdate();			
-		}catch (SQLException e) {
-			System.out.println("Database error");
-			e.printStackTrace();
-		}
-		return result;
-		
+	public int updateData(CategoryDto dto) {
+	    int result = 0;
+	    String sql = "UPDATE category SET name=?,created_date=? WHERE category_id=?";
+
+	    try {
+	        PreparedStatement ps = con.prepareStatement(sql);
+	        ps.setString(1, dto.getName());
+	        ps.setString(2, dto.getCreated_date());
+	        ps.setInt(3, dto.getCategory_id());
+	        result = ps.executeUpdate();
+	    } catch (SQLException e) {
+	        System.out.println("Database error");
+	        e.printStackTrace();
+	    }
+
+	    return result;
 	}
+
 	
 	//delete
 	public int deleteData(CategoryDto category) {
@@ -84,7 +85,7 @@ public class CategoryDao {
 			ps.setInt(1, category.getCategory_id());
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				res.getCategory_id();		
+				res.setCategory_id(rs.getInt("category_id"));
 				res.setName(rs.getString("name"));	
 				res.setCreated_date(rs.getString("created_date"));
 			}
@@ -117,6 +118,11 @@ public class CategoryDao {
 			e.printStackTrace();
 		}
 		return list1;
+	}
+
+	public ArrayList<CategoryDto> selectOne() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 		
 	}

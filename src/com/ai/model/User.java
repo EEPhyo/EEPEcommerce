@@ -28,7 +28,7 @@ public class User implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int uid;
 	
 	@Column
 	@NotEmpty
@@ -97,12 +97,12 @@ public class User implements Serializable{
 		created_date=LocalDate.now().format(DateTimeFormatter.ISO_DATE);
 		updated_date=LocalDate.now().format(DateTimeFormatter.ISO_DATE);
 	}
-	public int getId() {
-		return id;
+	public int getUid() {
+		return uid;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
 
 	public String getName() {

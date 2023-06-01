@@ -3,6 +3,7 @@ package com.ai.persistant.dto;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -16,13 +17,7 @@ public class CategoryDto implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int category_id;
 	
-	public int getCategory_id() {
-		return category_id;
-	}
-
-	public void setCategory_id(int category_id) {
-		this.category_id = category_id;
-	}
+	
 	@Column(name="name")
     private String name;
 	
@@ -33,6 +28,14 @@ public class CategoryDto implements Serializable{
     
 	public CategoryDto(){
 		created_date=LocalDate.now().format(DateTimeFormatter.ISO_DATE);
+	}
+	
+	public int getCategory_id() {
+		return category_id;
+	}
+
+	public void setCategory_id(int category_id) {
+		this.category_id = category_id;
 	}
 	
       public String getName() {
@@ -47,5 +50,10 @@ public class CategoryDto implements Serializable{
 	}
 	public void setCreated_date(String created_date) {
 		this.created_date = created_date;
+	}
+
+	public HashMap<String, Object> getProducts() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

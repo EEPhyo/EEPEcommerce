@@ -47,18 +47,24 @@ public class LoginController {
 		
 		UserDto dto = dao.getLogin(user);
 
-		if (dto == null) {
+//		if (dto == null) {
+//			model.addAttribute("error", "Invalid Email or Password!");
+//			return "redirect:/auth/login";
+//		}
+		if(!user.getEmail().equals(dto.getEmail()) && !user.getPassword().equals(dto.getPassword())){
 			model.addAttribute("error", "Invalid Email or Password!");
 			return "redirect:/auth/login";
 		}
 
-		
+		session.setAttribute("id",user.getUid());
 		session.setAttribute("email", user.getEmail());
 
-		if (user.getEmail().equals("jondoe@gmail.com") && user.getPassword().equals("admin123")) {
-			return "redirect:/list";
-		} else {
+		if (!user.getEmail().equals("johndoe@gmail.com") && !user.getPassword().equals("admin123")) {
 			return "/frontend/home";
+		} else {			
+			return "redirect:/list";
 		}
+		
+		
 	}
 }

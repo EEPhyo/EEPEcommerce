@@ -11,17 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LogoutController {
 	
 	@RequestMapping(value="/logout",method=RequestMethod.GET)
-	public String logout(HttpSession request) {
+	public String logout(HttpSession session) {
 		
-		if(request != null) 
-			request.removeAttribute("email");			
-			request.removeAttribute("id");
-			request.invalidate();			
-			request.setAttribute("errMessage","You have logged out successfully");
-		
-			
 	
-		return "redirect:/auth/login";
+		session.removeAttribute("uid");
+		session.removeAttribute("email");
+		session.setAttribute("errMessage","You have logged out successfully");
+		return "redirect:/login";
+		
+		
+		
 	}
 }
 	

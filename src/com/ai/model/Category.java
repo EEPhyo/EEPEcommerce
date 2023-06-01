@@ -3,12 +3,14 @@ package com.ai.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.ai.persistant.dto.CategoryDto;
@@ -20,6 +22,7 @@ public class Category implements Serializable{
 	
 	
 	@Column(name="name")
+	@NotEmpty
     private String name;
 	
 	@Column
@@ -53,5 +56,10 @@ public class Category implements Serializable{
 	}
 	public void setCreated_date(String created_date) {
 		this.created_date = created_date;
+	}
+
+	public HashMap<String, Object> getProducts() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

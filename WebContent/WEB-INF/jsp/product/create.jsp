@@ -9,7 +9,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Ecommerce Management</title>	  
-
+	<style>
+		 .error {
+			color: #ff0000;
+			}
+			
+			
+	
+	</style>
     
     <jsp:include page="../layouts/top-html-start-head-tag.jsp"></jsp:include>
   
@@ -36,7 +43,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="/ClothingProj/index">Products List</a></li>
+                        <li class="breadcrumb-item"><a href="<c:url value='/productList' />">Products List</a></li>
                         <li class="breadcrumb-item active">create</li>
                     </ol>
                 </div>
@@ -58,9 +65,9 @@
                         <!-- /.card-header -->
                         <!-- form start -->                                                         
                           <div class="card-body">
-                            	
+                            	<div style="color: red;">${error}</div>
                             
-                                <p class="danger-color">All star(*) fields are required</p>
+                                <p style="color:red">All star(*) fields are required</p>
                                 
                                 
                              <form:form method="POST" action="/ClothingProj/createProduct" modelAttribute="bean" enctype="multipart/form-data" >
@@ -81,7 +88,7 @@
                                         <form:select class="form-control" id="category_id" name="category_id" path="category_id">
                            					<option value="" selected disabled>Choose Category<option>                                            
                                                  <c:forEach items="${categories}" var="category">											        								        
-											      <option value="${category.category_id}" ${oldCategoryId == category.category_id ? 'selected' : ' '}>${category.name}</option>	
+											      <option value="${category.category_id}" <c:if test="${create.category_id == category.category_id}">selected</c:if>>${category.name}</option>	
 											    </c:forEach>
 											</form:select>
 											 <form:errors path="category_id" cssClass="error" />
@@ -94,7 +101,7 @@
                                         <form:select class="form-control" id="color_id" name="color_id" path="color_id">
                            				     <option value="" selected disabled>Choose Color<option>                            				                              
                                                  <c:forEach items="${colors}" var="color">
-											         <option value="${color.color_id}" ${oldColorId == color.color_id ? 'selected' : ' '}>${color.name}</option>	
+											        <option value="${color.color_id}" <c:if test="${create.color_id == color.color_id}">selected</c:if>>${color.name}</option>	
 											    </c:forEach>
 											 
 											</form:select>
@@ -108,7 +115,7 @@
                                         <form:select class="form-control" id="size_id" name="size_id" path="size_id">
                            					<option value="" selected disabled>Choose Size<option>                                            
                                                  <c:forEach items="${sizes}" var="size">
-											          <option value="${size.size_id}" ${oldSizeId == size.size_id ? 'selected' : ' '}>${size.value}</option>	
+											           <option value="${size.size_id}" <c:if test="${create.size_id == size.size_id}">selected</c:if>>${size.value}</option>	
 											    </c:forEach>
 											</form:select>
 											 <form:errors path="size_id" cssClass="error" />
@@ -118,7 +125,7 @@
                                    <div class="col-sm-6">                                 
                                        <div class="form-group">
                                             <form:label for="image" path="image">Image<span style="color:red">*</span></form:label>
-                                            <form:input type="file" class="form-control imageSelector" path="image" id="image" name="image" accept="images/*"/>
+                                            <form:input type="file" class="form-control imageSelector" path="image" id="image" name="image" accept="image/*"/>
                                              
                                       </div>
                                     </div>
@@ -127,7 +134,7 @@
                                      <div class="col-sm-6">
                                        <div class="form-group">
                                             <form:label for="quantity" path="quantity">Quantity<span style="color:red">*</span></form:label>
-                                            <form:input type="text" class="form-control" path="quantity" id="quantity" name="quantity" maxLength="10"/>
+                                            <form:input type="text" class="form-control" path="quantity" id="quantity" name="quantity" />
                                              <form:errors path="quantity" cssClass="error" />
                                       	</div>
                                       </div>
@@ -145,8 +152,8 @@
                                        <div class="form-group">
                                             <form:label for="is_stock" path="is_stock">Stock<span style="color:red">*</span></form:label>
                                             <form:input type="text" class="form-control" path="is_stock" id="is_stock" name="is_stock" />
-                                             <form:errors path="price" cssClass="error" />
-                                      	</div>
+                                            <form:errors path="is_stock" cssClass="error" />
+                                        </div>
                                      </div>
                                      
                                      

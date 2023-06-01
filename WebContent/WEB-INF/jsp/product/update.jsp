@@ -3,7 +3,7 @@
     
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-    
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +36,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="/ClothingProj/index">Products List</a></li>
+                        <li class="breadcrumb-item"><a href="<c:url value='/productList' />">Products List</a></li>
                         <li class="breadcrumb-item active">update</li>
                     </ol>
                 </div>
@@ -48,7 +48,7 @@
     <section class="content">
         <div class="container-fluid">
              <div class="row">
-                <div class="col-md-12">               
+                <div class="col-md-12">             
                                        
                     
                     <div class="card card-primary">
@@ -59,13 +59,16 @@
                         <!-- form start -->                                                         
                           <div class="card-body">
                             	
+                            <div style="color: red;">${error}</div>
                             
-                                <p class="danger-color">All star(*) fields are required</p>
-                                
+                                 <p style="color:red">All star(*) fields are required</p>
                                 
                              <form:form method="POST" action="/ClothingProj/updateProduct" modelAttribute="bean" enctype="multipart/form-data" >
                                 
                                 <div class="row">  
+                                
+                                  <form:input type="hidden" name="id" path="id" value="${product.id}" />
+                                  
                                   <div class="col-sm-6">
                                 	 <div class="form-group">
                                             <form:label for="name" path="name">Name<span style="color:red">*</span></form:label>
@@ -81,7 +84,7 @@
                                         <form:select class="form-control" id="category_id" name="category_id" path="category_id">
                            					<option value="" selected disabled>Choose Category<option>                                            
                                                  <c:forEach items="${categories}" var="category">											        								        
-											      <option value="${category.category_id}" ${oldCategoryId == category.category_id ? 'selected' : ' '}>${category.name}</option>	
+											      <option value="${category.category_id}" <c:if test="${category.category_id == category.category_id}">selected</c:if>>${category.name}</option>	
 											    </c:forEach>
 											</form:select>
 											 <form:errors path="category_id" cssClass="error" />
@@ -94,7 +97,7 @@
                                         <form:select class="form-control" id="color_id" name="color_id" path="color_id">
                            				     <option value="" selected disabled>Choose Color<option>                            				                              
                                                  <c:forEach items="${colors}" var="color">
-											         <option value="${color.color_id}" ${oldColorId == color.color_id ? 'selected' : ' '}>${color.name}</option>	
+											          <option value="${color.color_id}" <c:if test="${color.color_id == color.color_id}">selected</c:if>>${color.name}</option>	
 											    </c:forEach>
 											 
 											</form:select>
@@ -108,20 +111,20 @@
                                         <form:select class="form-control" id="size_id" name="size_id" path="size_id">
                            					<option value="" selected disabled>Choose Size<option>                                            
                                                  <c:forEach items="${sizes}" var="size">
-											          <option value="${size.size_id}" ${oldSizeId == size.size_id ? 'selected' : ' '}>${size.value}</option>	
+											          <option value="${size.size_id}" <c:if test="${size.size_id == size.size_id}">selected</c:if>>${size.value}</option>	
 											    </c:forEach>
 											</form:select>
 											 <form:errors path="size_id" cssClass="error" />
                                     	</div>
                                     </div>
-                                    	     
-                                   <div class="col-sm-6">                                 
-                                       <div class="form-group">
-                                            <form:label for="image" path="image">Image<span style="color:red">*</span></form:label>
-                                            <form:input type="file" class="form-control imageSelector" path="image" id="image" name="image" accept="images/*"/>
-                                             
-                                      </div>
-                                    </div>
+                                   <div class="col-sm-6">
+									    <div class="form-group">
+									        <form:label for="image" path="image">Image<span style="color:red">*</span></form:label>
+									        <form:input type="file" class="form-control imageSelector" path="image" id="image" name="image" accept="image/*"  />
+									 		<form:errors path="image" cssClass="error" />
+									    </div>
+									</div>
+
                                      
                                      
                                      <div class="col-sm-6">

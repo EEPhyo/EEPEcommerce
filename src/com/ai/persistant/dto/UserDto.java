@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
@@ -28,7 +29,7 @@ public class UserDto implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int uid;
 	
 	@Column
 	@NotEmpty
@@ -41,18 +42,15 @@ public class UserDto implements Serializable{
 	
 	
 	@Column(name="password")
-//	@PasswordEncoder
 	private String password;
 	
 	@Column(name="confirmPassword")
-//	@PasswordEncoder
 	private String confirmPassword;	
 	
 	
 	@Column(name="phone_number")
 	@NotNull
 	@NotEmpty
-//	@Phone
 	private String phone_number;
 	 
 	@Column
@@ -63,12 +61,6 @@ public class UserDto implements Serializable{
 	
 	
 	
-	public int getRole_id() {
-		return role_id;
-	}
-	public void setRole_id(int role_id) {
-		this.role_id = role_id;
-	}
 	@Column
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private String created_date;
@@ -89,6 +81,11 @@ public class UserDto implements Serializable{
 	@Column
 	private boolean locked;
 	
+	
+	@Transient
+	private String role_name;
+	
+	
 	@ManyToOne
 	@JoinColumn(name="id",nullable = false)
 	private Role role;
@@ -99,12 +96,12 @@ public class UserDto implements Serializable{
 		created_date=LocalDate.now().format(DateTimeFormatter.ISO_DATE);
 		updated_date=LocalDate.now().format(DateTimeFormatter.ISO_DATE);
 	}
-	public int getId() {
-		return id;
+	public int getUid() {
+		return uid;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
 
 	public String getName() {
@@ -206,9 +203,22 @@ public class UserDto implements Serializable{
 		// TODO Auto-generated method stub
 		
 	}
-	public void setRole_id(String string) {
-		// TODO Auto-generated method stub
+	
+
+	public int getRole_id() {
+		return role_id;
+	}
+	public void setRole_id(int role_id) {
+		this.role_id = role_id;
+	}
+	
+	public void setRole_name(String role_name) {
+		this.role_name=role_name;
 		
+	}
+	
+	public String getRole_name() {
+		return role_name;
 	}
 	
 

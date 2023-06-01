@@ -19,7 +19,7 @@
 </head>
 	
 <body class="hold-transition sidebar-mini layout-fixed">
-		
+	<div class="wrapper">	
 		<jsp:include page="../layouts/header.jsp"></jsp:include>
 		<jsp:include page="../layouts/sidebar.jsp"></jsp:include>
 
@@ -59,35 +59,41 @@
                                 <!-- form start -->
         
                                 <form:form action="/ClothingProj/update" modelAttribute="bean" method="POST">
-                                  
-                                    <div class="card-body">
-        
-                                        <p class="danger-color">All star(*) fields are required</p>
-                                        
-                                        <div class="form-group">
-                                            <form:label for="name" path="name">Title <span class="danger-color">*</span></form:label>
-                                            <form:input type="text" class="form-control" path="name" id="name" name="name" />
-                                           	
-                                        </div>
-                                    </div>
-                                    <!-- /.card-body -->
-                                    
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Update</button>
-                                          <a href="<c:url value='/category' />" class="btn btn-default" style="float: right;">Cancel</a>
-                                    </div>
-                                </form:form>
+                               
+                                 
+                                 
+								    <div class="card-body">
+								          <p style="color:red">All star(*) fields are required</p>
+								        
+								          <form:input type="hidden" name="category_id" path="category_id" value="${category.category_id}" />
+								          
+								        <div class="form-group">
+								            <form:label for="name" path="name">Title <span style="color:red">*</span></form:label>
+								            <form:input type="text" class="form-control" path="name" id="name" name="name" />
+								        </div>
+								    </div>
+								    <!-- /.card-body -->
+								    <div class="card-footer">
+								        <button type="submit" class="btn btn-primary">Update</button>
+								        <a href="<c:url value='/category' />" class="btn btn-default" style="float: right;">Cancel</a>
+								    </div>
+								</form:form>
+
                             </div>                            
                             
                         </div>
                         
                     </div>
                 </div>
+             
+            
             </section>
-        </div>
+         </div>
+        
         
    <jsp:include page="../layouts/footer.jsp"></jsp:include>
-		
+  
+</div>		
 		
 <!-- DataTables  & Plugins -->
 <script src="${pageContext.request.contextPath}/resource/plugins/datatables/jquery.dataTables.min.js"></script>

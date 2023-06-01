@@ -31,12 +31,12 @@ public class UserDao {
 	//insert
 	public int insertData(UserDto user) {
 		int result =0;
-		String sql = "INSERT INTO user(id,name,email,password,phone_number,address,role_id,created_date,updated_date,created_user,updated_user,enabled,locked) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO user(uid,name,email,password,phone_number,address,role_id,created_date,updated_date,created_user,updated_user,enabled,locked) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,user.getId());
+			ps.setInt(1,user.getUid());
 			ps.setString(2,user.getName());
 			ps.setString(3, user.getEmail());
 			ps.setString(4, user.getPassword());
@@ -61,11 +61,11 @@ public class UserDao {
 	//update
 	public int updateData(UserDto user) {
 		int result =0;
-		String sql = "UPDATE user SET name=?,email=?,password=?,phone_number=?,address=?,role_id=?,created_date=?,updated_date=?updated_user=?,enabled=?,locked=? WHERE id=?";
+		String sql = "UPDATE user SET name=?,email=?,password=?,phone_number=?,address=?,role_id=?,created_date=?,updated_date=?updated_user=?,enabled=?,locked=? WHERE uid=?";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,user.getId());
+			ps.setInt(1,user.getUid());
 			ps.setString(2,user.getName());
 			ps.setString(3, user.getEmail());
 			ps.setString(4, user.getPassword());
@@ -89,11 +89,11 @@ public class UserDao {
 	//delete
 	public int deleteData(UserDto user) {
 		int result=0;
-		String sql = "DELETE FROM user where id=?";		
+		String sql = "DELETE FROM user where uid=?";		
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1,user.getId());
+			ps.setInt(1,user.getUid());
 			result=ps.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Database error");
@@ -103,14 +103,14 @@ public class UserDao {
 	//select single 
 	public UserDto selectOne(UserDto user) {
 		UserDto res = new UserDto();
-		String sql = "SELECT * from user where id=?";
+		String sql = "SELECT * from user where uid=?";
 		
 		PreparedStatement ps;
 		try {
 			ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				rs.getInt("id");
+				rs.getInt("uid");
 				res.setName(rs.getString("name"));
 				res.setEmail(rs.getString("email"));
 				res.setPassword(rs.getString("password"));
@@ -141,14 +141,14 @@ public class UserDao {
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				UserDto res = new UserDto();
-				rs.getInt("id");
+				rs.getInt("uid");
 				res.setName(rs.getString("name"));
 				res.setEmail(rs.getString("email"));
 				res.setPassword(rs.getString("password"));
 				res.setPhone_number(rs.getString("phone_number"));
 				res.setAddress(rs.getString("address"));
 				res.setRole_id(rs.getInt("role_id"));
-				res.setCreated_date(rs.getString("created_date"));
+			res.setCreated_date(rs.getString("created_date"));
 				res.setUpdated_date(rs.getString("updated_date"));
 				res.setCreated_user(rs.getString("created_user"));
 				res.setUpdated_user(rs.getString("updated_user"));
@@ -156,8 +156,7 @@ public class UserDao {
 				res.setLocked(rs.getBoolean("locked"));
 				list.add(res);
 			}
-			
-		} catch (SQLException e) {
+	} catch (SQLException e) {
 			System.out.println("Database error");
 		}
 		return list;
@@ -172,7 +171,7 @@ public class UserDao {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				rs.getInt("id");
+				rs.getInt("uid");
 				res.setName(rs.getString("name"));
 				res.setEmail(rs.getString("email"));
 				res.setPassword(rs.getString("password"));
@@ -198,17 +197,14 @@ public class UserDao {
 	public ArrayList<UserDto> User_List() {
 		ArrayList<UserDto> list =new ArrayList<UserDto>();
 		
-//		 String sql = "SELECT u.id, u.name, u.email, u.phone_number, u.address, u.role_id, u.created_date, u.updated_date, u.created_user, u.updated_user, r.id AS role_id, r.role_name " +
-//                 "FROM user u LEFT JOIN role r ON u.role_id = r.id";
-		 String sql="SELECT u.id, u.name, u.email, u.phone_number, u.address,u.role_id, u.created_date, u.updated_date, u.created_user, u.updated_user,r.id,r.role_name" + 
-		 		"FROM user u" + 
-		 		"LEFT JOIN role r ON r.id=u.role_id";
+		String sql="SELECT u.*,r.role_name AS role_name FROM user u JOIN role r ON u.role_id = r.role_id ORDER BY u.uid DESC";		
+		
 		 	try {
 				PreparedStatement ps = con.prepareStatement(sql);
 			    ResultSet rs = ps.executeQuery();
 			    while (rs.next()) {
 			        UserDto user = new UserDto();
-			        user.setId(rs.getInt("id"));
+			        user.setUid(rs.getInt("uid"));
 			        user.setName(rs.getString("name"));
 			        user.setEmail(rs.getString("email"));
 			        user.setPhone_number(rs.getString("phone_number"));
@@ -218,22 +214,15 @@ public class UserDao {
 			        user.setUpdated_date(rs.getString("updated_date"));
 			        user.setCreated_user(rs.getString("created_user"));
 			        user.setUpdated_user(rs.getString("updated_user"));
-			
-			        RoleDto role = new RoleDto();
-			        role.setRole_id(rs.getInt("id"));
-		            role.setRole_name(rs.getString("role_name"));
-		            user.add(role);
-			
+			        user.setRole_name(rs.getString("role_name"));
 			        list.add(user);
-			    	}
-			    
-					}catch (SQLException e) {
+			    }			    
+			}catch (SQLException e) {
 						e.printStackTrace();
 			  
-					}
-			
+			}			
 					return list;
-				}
+		}
 
 	
 	
