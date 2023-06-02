@@ -29,4 +29,7 @@ private int id;
 private String created_date;
 private double received_amount;
 private String transition_proof;
+		public Transition() {
+			
+		}
 }
